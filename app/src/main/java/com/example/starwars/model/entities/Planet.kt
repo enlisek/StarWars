@@ -8,6 +8,6 @@ data class Planet(
     val climate: String,
     val terrain: String,
     val population: String,
-    val residents: List<Person>,
-    val films: List<Film>
+    val residents: List<String>,
+    val films: List<String>
 )

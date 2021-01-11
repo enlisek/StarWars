@@ -1,10 +1,9 @@
 package com.example.starwars.model.entities
 
 data class Person(
-    val id: Int,
     val name: String,
-    val height: Int,
-    val mass: Int,
+    val height: String,
+    val mass: String,
     val hair_color: String,
     val skin_color: String,
     val eye_color: String,

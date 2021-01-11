@@ -36,10 +36,11 @@ class MainActivity : AppCompatActivity() {
         GlobalScope.launch(Dispatchers.IO) {
 
             //wywołanie pierwszej osoby- działa
-//            val response=api.getExPerson().awaitResponse()
+//            val response=api.getCzlek(2).awaitResponse()
 //
 //            if(response.isSuccessful)
 //            {
+//                Log.d("XXXXXXXXXXXXXXX","YYYYYYYYYYYY")
 //                val data=response.body()!!
 //                Log.d("rr", "${data?.name ?: "brak nazwy"}")
 ////                for(v in data.people)
@@ -48,25 +49,37 @@ class MainActivity : AppCompatActivity() {
 ////                }
 //            }
 
-            //wywołanie wszystkich ludzi z danej strony- nie działa. Mam użyć QUERY zamiast GET, żeby zapytanie mogło byc dynamiczne...?
-//            val response=api.getAllPeople(1).awaitResponse()
+            //wywołanie listy osob z danej strony- dziala
+//            val response=api.getAllPeople(2).awaitResponse()
+//            if(response.isSuccessful)
+//            {
+//                Log.d(":)))))))))))))","YYYYYYYYYYYY")
+//                val data=response.body()!!
+//                for(v in data.results)
+//                {
+//                    Log.d("rr", "${v ?: "ni ma"}")
+//                }
+//            }
+//            else{
+//                Log.d(":(((((((((((","XXXXXX")
+//            }
+
+//              wywołanie Lei- działa
+//            val response=api.getPersonByName("Luke").awaitResponse()
 //
 //            if(response.isSuccessful)
 //            {
 //                val data=response.body()!!
-//                for(v in data.results)
-//                {
-//                    Log.d("rr", "${v?.name ?: "brak nazwy"}")
-//                }
+//                Log.d("XXXXXXXXXXXXXXXX", "${data?.results ?: "brak nazwy"}")
 //            }
 
-
-            val response=api.getLeia().awaitResponse()
+            //wywolanie filmu po url
+            val response=api.getFilmByUrl("https://swapi.dev/api/films/6/").awaitResponse()
 
             if(response.isSuccessful)
             {
                 val data=response.body()!!
-                Log.d("XXXXXXXXXXXXXXXX", "${data?.name ?: "brak nazwy"}")
+                Log.d("XXXXXXXXXXXXXXXX", "${data?.title ?: "brak nazwy"}")
             }
 
         }
