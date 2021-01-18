@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_file"
+    app:startDestination="@id/mainMenu">
+
+    <fragment
+        android:id="@+id/mainMenu"
+        android:name="com.example.starwars.view.fragment.MainMenu"
+        android:label="fragment_main_menu"
+        tools:layout="@layout/fragment_main_menu" >
+        <action
+            android:id="@+id/action_mainMenu_to_favourites"
+            app:destination="@id/favourites" />
+        <action
+            android:id="@+id/action_mainMenu_to_characterList2"
+            app:destination="@id/characterList2" />
+        <action
+            android:id="@+id/action_mainMenu_to_movieList2"
+            app:destination="@id/movieList2" />
+        <action
+            android:id="@+id/action_mainMenu_to_planetList2"
+            app:destination="@id/planetList2" />
+    </fragment>
+    <fragment
+        android:id="@+id/favourites"
+        android:name="com.example.starwars.view.fragment.Favourites"
+        android:label="fragment_favourites"
+        tools:layout="@layout/fragment_favourites" >
+        <action
+            android:id="@+id/action_favourites_to_mainMenu"
+            app:destination="@id/mainMenu" />
+        <action
+            android:id="@+id/action_favourites_to_planetList2"
+            app:destination="@id/planetList2" />
+        <action
+            android:id="@+id/action_favourites_to_movieList2"
+            app:destination="@id/movieList2" />
+        <action
+            android:id="@+id/action_favourites_to_characterList2"
+            app:destination="@id/characterList2" />
+    </fragment>
+    <fragment
+        android:id="@+id/characterList2"
+        android:name="com.example.starwars.view.fragment.CharacterList"
+        android:label="fragment_character_list"
+        tools:layout="@layout/fragment_character_list" >
+        <action
+            android:id="@+id/action_characterList2_to_mainMenu"
+            app:destination="@id/mainMenu" />
+        <action
+            android:id="@+id/action_characterList2_to_characterInfo"
+            app:destination="@id/characterInfo" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieList2"
+        android:name="com.example.starwars.view.fragment.MovieList"
+        android:label="fragment_movie_list"
+        tools:layout="@layout/fragment_movie_list" >
+        <action
+            android:id="@+id/action_movieList2_to_mainMenu"
+            app:destination="@id/mainMenu" />
+        <action
+            android:id="@+id/action_movieList2_to_movieInfo"
+            app:destination="@id/movieInfo" />
+    </fragment>
+    <fragment
+        android:id="@+id/planetList2"
+        android:name="com.example.starwars.view.fragment.PlanetList"
+        android:label="fragment_planet_list"
+        tools:layout="@layout/fragment_planet_list" >
+        <action
+            android:id="@+id/action_planetList2_to_mainMenu"
+            app:destination="@id/mainMenu" />
+        <action
+            android:id="@+id/action_planetList2_to_planetInfo"
+            app:destination="@id/planetInfo" />
+    </fragment>
+    <fragment
+        android:id="@+id/characterInfo"
+        android:name="com.example.starwars.view.fragment.CharacterInfo"
+        android:label="fragment_character_info"
+        tools:layout="@layout/fragment_character_info" >
+        <action
+            android:id="@+id/action_characterInfo_to_mainMenu"
+            app:destination="@id/mainMenu" />
+        <action
+            android:id="@+id/action_characterInfo_to_planetInfo"
+            app:destination="@id/planetInfo" />
+        <action
+            android:id="@+id/action_characterInfo_to_movieList2"
+            app:destination="@id/movieList2" />
+        <action
+            android:id="@+id/action_characterInfo_to_characterList2"
+            app:destination="@id/characterList2" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieInfo"
+        android:name="com.example.starwars.view.fragment.MovieInfo"
+        android:label="fragment_movie_info"
+        tools:layout="@layout/fragment_movie_info" >
+        <action
+            android:id="@+id/action_movieInfo_to_mainMenu"
+            app:destination="@id/mainMenu" />
+        <action
+            android:id="@+id/action_movieInfo_to_planetList2"
+            app:destination="@id/planetList2" />
+        <action
+            android:id="@+id/action_movieInfo_to_movieList2"
+            app:destination="@id/movieList2" />
+        <action
+            android:id="@+id/action_movieInfo_to_characterList2"
+            app:destination="@id/characterList2" />
+    </fragment>
+    <fragment
+        android:id="@+id/planetInfo"
+        android:name="com.example.starwars.view.fragment.PlanetInfo"
+        android:label="fragment_planet_info"
+        tools:layout="@layout/fragment_planet_info" >
+        <action
+            android:id="@+id/action_planetInfo_to_mainMenu"
+            app:destination="@id/mainMenu" />
+        <action
+            android:id="@+id/action_planetInfo_to_planetList2"
+            app:destination="@id/planetList2" />
+        <action
+            android:id="@+id/action_planetInfo_to_movieList2"
+            app:destination="@id/movieList2" />
+        <action
+            android:id="@+id/action_planetInfo_to_characterList2"
+            app:destination="@id/characterList2" />
+    </fragment>
+</navigation>

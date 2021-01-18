@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout6"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    android:orientation="vertical"
+    tools:context=".view.fragment.Favourites">
+
+    <Button
+        android:id="@+id/button_goToFavouriteMovies"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="@string/button_goToFavouriteMovies"
+        android:backgroundTint="@color/button_style"/>
+
+    <Button
+        android:id="@+id/button_goToFavouriteCharacter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="@string/button_goToFavouriteCharacter"
+        android:backgroundTint="@color/button_style"/>
+
+    <Button
+        android:id="@+id/button_goToFavouritePlanet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="@string/button_goToFavouritePlanet"
+        android:backgroundTint="@color/button_style"/>
+
+    <Button
+        android:id="@+id/button_goToMainMenuFromFavourites"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_goToMainMenuFromFavourites"
+        android:backgroundTint="@color/button_style"/>
+</LinearLayout>
