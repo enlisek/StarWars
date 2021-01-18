@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import com.example.starwars.R
+import kotlinx.android.synthetic.main.fragment_character_info.*
+import kotlinx.android.synthetic.main.fragment_favourites.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -37,7 +40,22 @@ class Favourites : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_favourites, container, false)
     }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        button_goToFavouriteMovies.setOnClickListener {
+                view->view.findNavController().navigate(R.id.action_favourites_to_movieList2)
+        }
+        button_goToFavouriteCharacter.setOnClickListener {
+                view->view.findNavController().navigate(R.id.action_favourites_to_characterList2)
+        }
+        button_goToFavouritePlanet.setOnClickListener {
+                view->view.findNavController().navigate(R.id.action_favourites_to_planetList2)
+        }
+        button_goToMainMenuFromFavourites.setOnClickListener {
+                view->view.findNavController().navigate(R.id.action_favourites_to_mainMenu)
+        }
 
+    }
     companion object {
         /**
          * Use this factory method to create a new instance of

@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import com.example.starwars.R
+import kotlinx.android.synthetic.main.fragment_character_info.*
+import kotlinx.android.synthetic.main.fragment_main_menu.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,6 +39,23 @@ class CharacterInfo : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_character_info, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        button_goToHomeworldFromCharacterInfo.setOnClickListener {
+                view->view.findNavController().navigate(R.id.action_characterInfo_to_planetInfo)
+        }
+        button_goToCharacterListFromCharacterInfo.setOnClickListener {
+                view->view.findNavController().navigate(R.id.action_characterInfo_to_characterList2)
+        }
+         button_goToCharacterMovieListFromCharacterInfo.setOnClickListener {
+                view->view.findNavController().navigate(R.id.action_characterInfo_to_movieList2)
+        }
+         button_goToMainMenuFromCharacterInfo.setOnClickListener {
+                view->view.findNavController().navigate(R.id.action_characterInfo_to_mainMenu)
+        }
+
     }
 
     companion object {

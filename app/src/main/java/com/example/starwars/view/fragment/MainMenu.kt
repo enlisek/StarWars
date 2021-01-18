@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import com.example.starwars.R
+import kotlinx.android.synthetic.main.fragment_main_menu.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -38,6 +40,21 @@ class MainMenu : Fragment() {
         return inflater.inflate(R.layout.fragment_main_menu, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        button_goToFavoritesFromMainMenu.setOnClickListener {
+            view->view.findNavController().navigate(R.id.action_mainMenu_to_favourites)
+        }
+        button_goToCharacterListFromMainMenu.setOnClickListener {
+            view-> view.findNavController().navigate(R.id.action_mainMenu_to_characterList2)
+        }
+        button_goToPlanetListFromMainMenu.setOnClickListener {
+                view-> view.findNavController().navigate(R.id.action_mainMenu_to_planetList2)
+        }
+       button_goToMovieListFromMainMenu.setOnClickListener {
+                view-> view.findNavController().navigate(R.id.action_mainMenu_to_movieList2)
+        }
+    }
     companion object {
         /**
          * Use this factory method to create a new instance of
