@@ -8,7 +8,17 @@ import retrofit2.http.Query
 
 interface StarWarsApi {
             @GET("people/")
-            fun getAllPeople(@Query("page") page :Int): Call<ListOfPeople>
+            fun getAllPeopleOnPage(@Query("page") page :Int): Call<ListOfPeople>
+
+            @GET("films/")
+            fun getAllFilms(): Call<ListOfFilms>
+
+            @GET("planets/")
+            fun getAllPlanetsOnPage(@Query("page") page :Int): Call<ListOfPlanets>
+
+
+
+
 
             @GET("{fullUrl}")
             fun getFilmByUrl(@Path("fullUrl",encoded = true) fullUrl: String): Call<Film>
@@ -37,11 +47,9 @@ interface StarWarsApi {
             @GET("people/{id_czleka}")
             fun getCzlek(@Path("id_czleka") id_czleka: Int): Call<Person>
 
-            @GET("planets/")
-            fun getAllPlanets(): Call<List<Planet>>
 
-            @GET("films/")
-            fun getAllFilms(): Call<List<Film>>
+
+
 
             @GET("films/{episode_id}")
             fun getFilmById(@Path("episode_id") episode_id: Int): Call<Film>

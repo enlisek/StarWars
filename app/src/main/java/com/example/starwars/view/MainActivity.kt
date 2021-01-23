@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.util.Log
 import com.example.starwars.R
 import com.example.starwars.model.api.StarWarsApi
-import com.example.starwars.model.repositories.StarWarsRepository.Companion.getAllPeople
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
