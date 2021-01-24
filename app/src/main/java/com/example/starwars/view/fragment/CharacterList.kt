@@ -49,7 +49,7 @@ class CharacterList : Fragment() {
         mainViewModel =  ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
         characterListViewModel = ViewModelProvider(requireActivity()).get(CharacterListViewModel::class.java)
         viewManager = LinearLayoutManager(requireContext())
-        characterListViewModel.updatePeople()
+        //characterListViewModel.updateAllPeople()
         adapter1 = CharacterAdapter(characterListViewModel.characters,mainViewModel)
         characterListViewModel.characters.observe(viewLifecycleOwner, { adapter1.notifyDataSetChanged() })
         // Inflate the layout for this fragment

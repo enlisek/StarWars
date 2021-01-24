@@ -11,8 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.starwars.R
 import com.example.starwars.model.entities.Film
 import com.example.starwars.viewmodel.MainViewModel
+import com.example.starwars.viewmodel.viewModels.CharacterListViewModel
 
-class MovieAdapter(var data: LiveData<List<Film>>,val mainViewModel: MainViewModel): RecyclerView.Adapter<MovieAdapter.NoteHolder>() {
+class MovieAdapter(var data: LiveData<List<Film>>,val mainViewModel: MainViewModel, val characterListViewModel: CharacterListViewModel): RecyclerView.Adapter<MovieAdapter.NoteHolder>() {
     lateinit  var context: Context
     class NoteHolder(view: View): RecyclerView.ViewHolder(view)
 
@@ -31,7 +32,8 @@ class MovieAdapter(var data: LiveData<List<Film>>,val mainViewModel: MainViewMod
         buttonOneRow.setOnClickListener {
             view-> run {
             mainViewModel.selectedFilm = data.value?.get(position)!!
-            mainViewModel.getPeopleFromUrlList(mainViewModel.selectedFilm.characters)
+            characterListViewModel.getPeopleFromUrlList(mainViewModel.selectedFilm.characters)
+//            mainViewModel.getPeopleFromUrlList(mainViewModel.selectedFilm.characters)
             mainViewModel.getPlanetsFromUrlList(mainViewModel.selectedFilm.planets)
             view.findNavController().navigate(R.id.action_movieList2_to_movieInfo) }
         }

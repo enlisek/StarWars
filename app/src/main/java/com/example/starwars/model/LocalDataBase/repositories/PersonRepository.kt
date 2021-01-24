@@ -19,4 +19,14 @@ class PersonRepository(private val personDao: PersonDao) {
     {
         return personDao.allPeople()
     }
+
+    fun ifFav(name: String) : Boolean
+    {
+        if (personDao.findByName(name) != null)
+        {
+            return true
+        }
+        return false
+
+    }
 }

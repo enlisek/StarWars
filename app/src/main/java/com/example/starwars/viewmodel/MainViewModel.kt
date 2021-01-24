@@ -5,6 +5,8 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.example.starwars.model.LocalDataBase.StarWarsDataBase
+import com.example.starwars.model.LocalDataBase.repositories.PersonRepository
 import com.example.starwars.model.entities.Film
 import com.example.starwars.model.entities.Person
 import com.example.starwars.model.entities.Planet

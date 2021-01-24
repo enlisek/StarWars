@@ -17,4 +17,7 @@ interface PersonDao {
 
     @Query("Select * from person_table")
     fun allPeople(): LiveData<List<FavPerson>>
+
+    @Query ("Select * from person_table where name = :person_name ")
+    fun findByName(person_name:String): LiveData<List<FavPerson>>
 }
