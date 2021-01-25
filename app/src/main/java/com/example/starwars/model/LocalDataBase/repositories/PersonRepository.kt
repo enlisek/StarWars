@@ -27,6 +27,5 @@ class PersonRepository(private val personDao: PersonDao) {
             return true
         }
         return false
-
     }
 }
