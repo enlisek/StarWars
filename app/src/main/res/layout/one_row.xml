@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="70dp"
+    android:layout_marginVertical="8dp"
+    android:background="#59696969"
+    android:gravity="center">
 
     <TextView
         android:id="@+id/textViewOneRow"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="7"
+        android:paddingStart="20dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="20dp"
         android:text="@string/textview_nameOfTheElementOfTheList"
-        android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
 
-    <Button
-        android:id="@+id/buttonOneRow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_chooseElementFromTheList"
-        android:backgroundTint="@color/button_style"/>
 </LinearLayout>

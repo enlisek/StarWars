@@ -32,14 +32,14 @@
             android:id="@+id/action_favourites_to_mainMenu"
             app:destination="@id/mainMenu" />
         <action
-            android:id="@+id/action_favourites_to_planetList2"
-            app:destination="@id/planetList2" />
+            android:id="@+id/action_favourites_to_favourite_characters"
+            app:destination="@id/favourite_characters" />
         <action
-            android:id="@+id/action_favourites_to_movieList2"
-            app:destination="@id/movieList2" />
+            android:id="@+id/action_favourites_to_favourite_movies"
+            app:destination="@id/favourite_movies" />
         <action
-            android:id="@+id/action_favourites_to_characterList2"
-            app:destination="@id/characterList2" />
+            android:id="@+id/action_favourites_to_favourite_planets"
+            app:destination="@id/favourite_planets" />
     </fragment>
     <fragment
         android:id="@+id/characterList2"
@@ -131,4 +131,46 @@
             android:id="@+id/action_planetInfo_to_characterList2"
             app:destination="@id/characterList2" />
     </fragment>
+    <fragment
+        android:id="@+id/favourite_characters"
+        android:name="com.example.starwars.view.fragment.favourite_characters"
+        android:label="fragment_favourite_characters"
+        tools:layout="@layout/fragment_favourite_characters" >
+        <action
+            android:id="@+id/action_favourite_characters_to_favourite_character_info"
+            app:destination="@id/favourite_character_info" />
+    </fragment>
+    <fragment
+        android:id="@+id/favourite_character_info"
+        android:name="com.example.starwars.view.fragment.favourite_character_info"
+        android:label="fragment_favourite_character_info"
+        tools:layout="@layout/fragment_favourite_character_info" />
+    <fragment
+        android:id="@+id/favourite_movies"
+        android:name="com.example.starwars.view.fragment.favourite_movies"
+        android:label="fragment_favourite_movies"
+        tools:layout="@layout/fragment_favourite_movies" >
+        <action
+            android:id="@+id/action_favourite_movies_to_favourite_movie"
+            app:destination="@id/favourite_movie" />
+    </fragment>
+    <fragment
+        android:id="@+id/favourite_movie"
+        android:name="com.example.starwars.view.fragment.favourite_movie"
+        android:label="fragment_favourite_movie_info"
+        tools:layout="@layout/fragment_favourite_movie_info" />
+    <fragment
+        android:id="@+id/favourite_planets"
+        android:name="com.example.starwars.view.fragment.favourite_planets"
+        android:label="fragment_favourite_planets"
+        tools:layout="@layout/fragment_favourite_planets" >
+        <action
+            android:id="@+id/action_favourite_planets_to_favourite_planet_info"
+            app:destination="@id/favourite_planet_info" />
+    </fragment>
+    <fragment
+        android:id="@+id/favourite_planet_info"
+        android:name="com.example.starwars.view.fragment.favourite_planet_info"
+        android:label="fragment_favourite_planet_info"
+        tools:layout="@layout/fragment_favourite_planet_info" />
 </navigation>

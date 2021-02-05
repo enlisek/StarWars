@@ -26,10 +26,10 @@ class MovieAdapter(var data: LiveData<List<Film>>,val mainViewModel: MainViewMod
     override fun onBindViewHolder(holder: NoteHolder, position: Int) {
 
         val textViewOneRow = holder.itemView.findViewById<TextView>(R.id.textViewOneRow)
-        val buttonOneRow = holder.itemView.findViewById<TextView>(R.id.buttonOneRow)
+        //val buttonOneRow = holder.itemView.findViewById<TextView>(R.id.buttonOneRow)
 
         textViewOneRow.text = data.value?.get(position)?.title
-        buttonOneRow.setOnClickListener {
+        textViewOneRow.setOnClickListener {
             view-> run {
             mainViewModel.selectedFilm = data.value?.get(position)!!
             characterListViewModel.getPeopleFromUrlList(mainViewModel.selectedFilm.characters)

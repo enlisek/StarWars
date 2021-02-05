@@ -2,10 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout5"
+    android:id="@+id/frameLayout11"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.fragment.CharacterInfo" >
+    tools:context=".view.fragment.favourite_character_info">
+
 
     <LinearLayout
         android:layout_width="0dp"
@@ -19,7 +20,6 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
@@ -27,33 +27,31 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/imageView_character"
+                android:id="@+id/imageView_favouriteCharacterInFavouriteCharacterInfo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:src="@drawable/character_image" />
+                tools:src="@drawable/character_image" />
 
             <TextView
-                android:id="@+id/textView_characterName"
+                android:id="@+id/textView_nameOfFavouriteCharacter"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_weight="3"
-                android:text="@string/textview_characterName"
+
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
 
             <CheckBox
-                android:id="@+id/checkBox_favouriteCharacter"
+                android:id="@+id/checkBox_favourtieCharacteInFavouriteCharacterInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:button="@android:drawable/btn_star_big_off" />
-
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearLayout3"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
@@ -61,32 +59,31 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView_characterHeight"
+                android:id="@+id/textview_heightOfFavouriteCharacter"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/textview_characterHeight"
+
                 android:textColor="#FFFFFF" />
 
             <TextView
-                android:id="@+id/textview_characterWeight"
+                android:id="@+id/textView_WeightOfFavouriteCharacter"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/textview_characterWeight"
+
                 android:textColor="#FFFFFF" />
 
             <TextView
-                android:id="@+id/textview_dateOfBirth"
+                android:id="@+id/textView_dateOfBirthOfFavouriteCharacter"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/textview_dateOfBirth"
+
                 android:textColor="#FFFFFF" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearLayout4"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
@@ -94,24 +91,21 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textview_hairColor"
+                android:id="@+id/textView_hairColorOfFavouriteCharacter"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/textview_hairColor"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"/>
 
             <TextView
-                android:id="@+id/textview_skinColor"
+                android:id="@+id/textView_skinColorOfFavouriteCharacter"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/textview_skinColor"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"/>
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearLayout5"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
@@ -119,70 +113,20 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textview_genderOfCharacter"
+                android:id="@+id/textView_genderOfFavouriteCharacter"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/textview_genderOfCharacter"
                 android:textColor="#FFFFFF" />
 
             <TextView
-                android:id="@+id/textview_eyeColor"
+                android:id="@+id/textView_eyeColorOfFavouriteCharacter"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/textview_eyeColor"
                 android:textColor="#FFFFFF" />
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/linearLayout6"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/button_goToHomeworldFromCharacterInfo"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/button_style"
-                android:text="@string/button_goToHomeWorldFormCharacterInfo" />
-
-            <Button
-                android:id="@+id/button_goToCharacterMovieListFromCharacterInfo"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/button_style"
-                android:text="@string/button_goToCharacterMovieListFromCharacterInfo" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/button_goToCharacterListFromCharacterInfo"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/button_style"
-                android:text="@string/button_goToCharacterListFromCharacterInfo" />
-
-            <Button
-                android:id="@+id/button_goToMainMenuFromCharacterInfo"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/button_style"
-                android:text="@string/button_goToMainMenuFromCharacterInfo" />
-        </LinearLayout>
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

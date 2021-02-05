@@ -2,19 +2,16 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout7"
+    android:id="@+id/frameLayout13"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".view.fragment.MovieInfo">
+    tools:context=".view.fragment.favourite_movie" >
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,16 +26,15 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textview_idMovie"
+                android:id="@+id/textView_idOfFavouriteMovie"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/textview_idMovie"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textview_titleOfMovie"
+                android:id="@+id/textView_titleOfFavouriteMovie"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -47,7 +43,7 @@
                 android:textSize="18sp" />
 
             <CheckBox
-                android:id="@+id/checkBox_favouriteMovie"
+                android:id="@+id/checkBox_favouriteMovieInFavouriteMovieInfo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -57,12 +53,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_weight="2"
             android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textview_quotation"
+                android:id="@+id/textView_quotationOfFavouriteMovie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
@@ -77,19 +73,19 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textview_dateOfRelease"
+                android:id="@+id/textView_dateOfReleaseOfFavouriteMovie"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/textview_dateOfRelease"
+
                 android:textColor="#FFFFFF" />
 
             <TextView
-                android:id="@+id/textview_direction"
+                android:id="@+id/textView_directionOfFavouriteMovie"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/textview_direction"
+
                 android:textColor="#FFFFFF" />
         </LinearLayout>
 
@@ -101,65 +97,12 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textview_movieProducer"
+                android:id="@+id/textView_favouriteMovieProducer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/textview_movieProducer"
+
                 android:textColor="#FFFFFF" />
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/linearLayout7"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/button_goToMovieCharactersFromMovieInfo"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/button_style"
-                android:text="@string/button_goToMovieCharactersFromMovieInfo" />
-
-            <Button
-                android:id="@+id/button_goToMoviePlanetsFromMovieInfo"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/button_style"
-                android:text="@string/button_goToMoviePlanetsFromMovieInfo" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/button_goToMovieListFromMovieInfo"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/button_style"
-                android:text="@string/button_goToMovieListFromMovieInfo" />
-
-            <Button
-                android:id="@+id/button_goToMainMenuFromMovieInfo"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/button_style"
-                android:text="@string/button_goToMainMenuFromMovieInfo" />
-        </LinearLayout>
-
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

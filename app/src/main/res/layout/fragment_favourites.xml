@@ -11,31 +11,32 @@
     <Button
         android:id="@+id/button_goToFavouriteMovies"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_weight="2"
-        android:text="@string/button_goToFavouriteMovies"
-        android:backgroundTint="@color/button_style"/>
+        android:backgroundTint="@color/button_style"
+        android:text="@string/button_goToFavouriteMovies" />
 
     <Button
         android:id="@+id/button_goToFavouriteCharacter"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_weight="2"
-        android:text="@string/button_goToFavouriteCharacter"
-        android:backgroundTint="@color/button_style"/>
+        android:backgroundTint="@color/button_style"
+        android:text="@string/button_goToFavouriteCharacter" />
 
     <Button
         android:id="@+id/button_goToFavouritePlanet"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_weight="2"
-        android:text="@string/button_goToFavouritePlanet"
-        android:backgroundTint="@color/button_style"/>
+        android:backgroundTint="@color/button_style"
+        android:text="@string/button_goToFavouritePlanet" />
 
     <Button
         android:id="@+id/button_goToMainMenuFromFavourites"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/button_goToMainMenuFromFavourites"
-        android:backgroundTint="@color/button_style"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/button_style"
+        android:text="@string/button_goToMainMenuFromFavourites" />
 </LinearLayout>

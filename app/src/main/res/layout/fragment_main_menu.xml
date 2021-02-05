@@ -55,15 +55,13 @@
         android:backgroundTint="@color/button_style"/>
 
     <ImageView
-        android:id="@+id/imageView_mainMenu"
+        android:id="@+id/imageView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="16dp"
+        android:src="@drawable/starwars_main"
         app:layout_constraintBottom_toTopOf="@+id/button_goToMovieListFromMainMenu"
         app:layout_constraintEnd_toEndOf="@+id/button_goToMovieListFromMainMenu"
         app:layout_constraintStart_toStartOf="@+id/button_goToMovieListFromMainMenu"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:src="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

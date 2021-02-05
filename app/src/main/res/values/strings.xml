@@ -48,4 +48,18 @@
     <string name="button_goToMovieListFromPlanetInfo">Movie list</string>
     <string name="button_chooseElementFromTheList">choose</string>
     <string name="textview_nameOfTheElementOfTheList">Name</string>
+    <string name="button_goToMenuFromFavouritePlanets">main menu</string>
+    <string name="button_goToMenuFromFaouriteMovies">main menu</string>
+    <string name="button_goToMenuFromFavouriteCharacters">main menu</string>
+    <string name="button_goToMenuFromFavouriteCharacterInfo">menu</string>
+    <string name="button_goToFavouritesFromFavouriteCharacterInfo">favourites</string>
+    <string name="button_goToFavouriteCharactersFromFavouriteCharacterInfo">favourite characters</string>
+    <string name="textview_heightOfFavouriteCharacter" />
+    <string name="textView_WeightOfFavouriteCharacter" />
+    <string name="button_goToMenuFromFavouritePlanetInfo">menu</string>
+    <string name="button_goToFavouritesFromFavouritePlanetInfo">favourites</string>
+    <string name="button_goToFavouritePlanetsFromFavouritePlanetInfo">favourite planets</string>
+    <string name="button_goToMenuFromFavouriteMovieInfo">menu</string>
+    <string name="button_goToFavouritesFromFavouriteMovieInfo">favourites</string>
+    <string name="button_goToFavourtieMoviesFromFavouriteMovieInfo">favourite movies</string>
 </resources>

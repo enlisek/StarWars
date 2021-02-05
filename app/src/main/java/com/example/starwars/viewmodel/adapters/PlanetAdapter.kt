@@ -23,11 +23,11 @@ class PlanetAdapter(var data: LiveData<List<Planet>>,val mainViewModel: MainView
     override fun onBindViewHolder(holder: NoteHolder, position: Int) {
 
         val textViewOneRow = holder.itemView.findViewById<TextView>(R.id.textViewOneRow)
-        val buttonOneRow = holder.itemView.findViewById<TextView>(R.id.buttonOneRow)
+        //val buttonOneRow = holder.itemView.findViewById<TextView>(R.id.textViewOneRow)
 
         textViewOneRow.text = data.value?.get(position)?.name
 
-        buttonOneRow.setOnClickListener {
+        textViewOneRow.setOnClickListener {
                 view-> run {
             mainViewModel.selectedPlanet = data.value?.get(position)!!
             mainViewModel.getPeopleFromUrlList(mainViewModel.selectedPlanet.residents)
