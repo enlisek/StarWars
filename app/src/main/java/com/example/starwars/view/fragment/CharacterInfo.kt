@@ -60,18 +60,11 @@ class CharacterInfo : Fragment() {
         textview_skinColor.text = "Skin color: ${mainViewModel.selectedCharacter.skin_color}"
         textview_genderOfCharacter.text = "Gender: ${mainViewModel.selectedCharacter.gender}"
         textview_eyeColor.text = "Eye color: ${mainViewModel.selectedCharacter.eye_color}"
+        textView_character_homeworld.text = "Homeworld: ${mainViewModel.selectedCharacter.homeworld}"
 
-        button_goToHomeworldFromCharacterInfo.setOnClickListener {
-            view-> run {
-                mainViewModel.setPlanetFromUrl(mainViewModel.selectedCharacter.homeworld)
-                view.findNavController().navigate(R.id.action_characterInfo_to_planetInfo)
-            }
-        }
+
         button_goToCharacterListFromCharacterInfo.setOnClickListener {
                 view->view.findNavController().navigate(R.id.action_characterInfo_to_characterList2)
-        }
-         button_goToCharacterMovieListFromCharacterInfo.setOnClickListener {
-                view->view.findNavController().navigate(R.id.action_characterInfo_to_movieList2)
         }
          button_goToMainMenuFromCharacterInfo.setOnClickListener {
                 view->view.findNavController().navigate(R.id.action_characterInfo_to_mainMenu)

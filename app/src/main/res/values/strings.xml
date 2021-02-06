@@ -12,7 +12,7 @@
     <string name="button_goToHomeWorldFormCharacterInfo">homeworld</string>
     <string name="button_goToCharacterMovieListFromCharacterInfo">movies</string>
     <string name="button_goToMainMenuFromCharacterInfo">main menu</string>
-    <string name="button_goToCharacterListFromCharacterInfo">Characters</string>
+    <string name="button_goToCharacterListFromCharacterInfo">Back to character list</string>
     <string name="textview_characterName">character name</string>
     <string name="textview_characterHeight">height</string>
     <string name="textview_characterWeight">weight</string>
@@ -32,7 +32,7 @@
     <string name="textview_direction">director</string>
     <string name="textview_movieProducer">movieProducer</string>
     <string name="button_goToMainMenuFromMovieInfo">main menu</string>
-    <string name="button_goToMovieListFromMovieInfo">movie list</string>
+    <string name="button_goToMovieListFromMovieInfo">Back to movie list</string>
     <string name="button_goToMoviePlanetsFromMovieInfo">movie planets</string>
     <string name="button_goToMovieCharactersFromMovieInfo">movie characters</string>
     <string name="textview_nameOfThePlanet">nameOfThePlanet</string>
@@ -42,7 +42,7 @@
     <string name="textview_orbital">orbital</string>
     <string name="textview_population">population</string>
     <string name="textview_terrain">terrain</string>
-    <string name="button_goToPlanetListFormPlanetInfo">planet list</string>
+    <string name="button_goToPlanetListFormPlanetInfo">Back to planet list</string>
     <string name="button_goToMainMenuFromPlanetInfo">main menu</string>
     <string name="button_goToCharacterListFromPlanetInfo">Character list</string>
     <string name="button_goToMovieListFromPlanetInfo">Movie list</string>

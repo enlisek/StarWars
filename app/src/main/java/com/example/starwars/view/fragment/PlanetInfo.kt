@@ -61,12 +61,7 @@ class PlanetInfo : Fragment() {
 
         mainViewModel.getPeopleFromUrlList(mainViewModel.selectedPlanet.residents)
         Log.d("XYZ",mainViewModel.listOfPeople.toString())
-        button_goToCharacterListFromPlanetInfo.setOnClickListener {
-                view->view.findNavController().navigate(R.id.action_planetInfo_to_characterList2)
-        }
-        button_goToMovieListFromPlanetInfo.setOnClickListener {
-                view->view.findNavController().navigate(R.id.action_planetInfo_to_movieList2)
-        }
+
         button_goToPlanetListFormPlanetInfo.setOnClickListener {
                 view->view.findNavController().navigate(R.id.action_planetInfo_to_planetList2)
         }

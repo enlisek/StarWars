@@ -57,12 +57,6 @@ class MovieInfo : Fragment() {
         textview_movieProducer.text = "Producer: ${mainViewModel.selectedFilm.producer}"
         textview_idMovie.text = mainViewModel.selectedFilm.episode_id.toString()
 
-        button_goToMovieCharactersFromMovieInfo.setOnClickListener {
-                view->view.findNavController().navigate(R.id.action_movieInfo_to_characterList2)
-        }
-        button_goToMoviePlanetsFromMovieInfo.setOnClickListener {
-                view->view.findNavController().navigate(R.id.action_movieInfo_to_planetList2)
-        }
         button_goToMovieListFromMovieInfo.setOnClickListener {
                 view->view.findNavController().navigate(R.id.action_movieInfo_to_movieList2)
         }
