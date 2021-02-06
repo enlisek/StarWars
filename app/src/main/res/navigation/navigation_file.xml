@@ -86,12 +86,6 @@
             android:id="@+id/action_characterInfo_to_mainMenu"
             app:destination="@id/mainMenu" />
         <action
-            android:id="@+id/action_characterInfo_to_planetInfo"
-            app:destination="@id/planetInfo" />
-        <action
-            android:id="@+id/action_characterInfo_to_movieList2"
-            app:destination="@id/movieList2" />
-        <action
             android:id="@+id/action_characterInfo_to_characterList2"
             app:destination="@id/characterList2" />
     </fragment>
@@ -104,14 +98,8 @@
             android:id="@+id/action_movieInfo_to_mainMenu"
             app:destination="@id/mainMenu" />
         <action
-            android:id="@+id/action_movieInfo_to_planetList2"
-            app:destination="@id/planetList2" />
-        <action
             android:id="@+id/action_movieInfo_to_movieList2"
             app:destination="@id/movieList2" />
-        <action
-            android:id="@+id/action_movieInfo_to_characterList2"
-            app:destination="@id/characterList2" />
     </fragment>
     <fragment
         android:id="@+id/planetInfo"
@@ -124,12 +112,6 @@
         <action
             android:id="@+id/action_planetInfo_to_planetList2"
             app:destination="@id/planetList2" />
-        <action
-            android:id="@+id/action_planetInfo_to_movieList2"
-            app:destination="@id/movieList2" />
-        <action
-            android:id="@+id/action_planetInfo_to_characterList2"
-            app:destination="@id/characterList2" />
     </fragment>
     <fragment
         android:id="@+id/favourite_characters"
@@ -139,12 +121,22 @@
         <action
             android:id="@+id/action_favourite_characters_to_favourite_character_info"
             app:destination="@id/favourite_character_info" />
+        <action
+            android:id="@+id/action_favourite_characters_to_favourites"
+            app:destination="@id/favourites" />
     </fragment>
     <fragment
         android:id="@+id/favourite_character_info"
         android:name="com.example.starwars.view.fragment.favourite_character_info"
         android:label="fragment_favourite_character_info"
-        tools:layout="@layout/fragment_favourite_character_info" />
+        tools:layout="@layout/fragment_favourite_character_info" >
+        <action
+            android:id="@+id/action_favourite_character_info_to_favourite_characters"
+            app:destination="@id/favourite_characters" />
+        <action
+            android:id="@+id/action_favourite_character_info_to_favourites"
+            app:destination="@id/favourites" />
+    </fragment>
     <fragment
         android:id="@+id/favourite_movies"
         android:name="com.example.starwars.view.fragment.favourite_movies"
@@ -153,12 +145,22 @@
         <action
             android:id="@+id/action_favourite_movies_to_favourite_movie"
             app:destination="@id/favourite_movie" />
+        <action
+            android:id="@+id/action_favourite_movies_to_favourites"
+            app:destination="@id/favourites" />
     </fragment>
     <fragment
         android:id="@+id/favourite_movie"
         android:name="com.example.starwars.view.fragment.favourite_movie"
         android:label="fragment_favourite_movie_info"
-        tools:layout="@layout/fragment_favourite_movie_info" />
+        tools:layout="@layout/fragment_favourite_movie_info" >
+        <action
+            android:id="@+id/action_favourite_movie_to_favourite_movies"
+            app:destination="@id/favourite_movies" />
+        <action
+            android:id="@+id/action_favourite_movie_to_favourites"
+            app:destination="@id/favourites" />
+    </fragment>
     <fragment
         android:id="@+id/favourite_planets"
         android:name="com.example.starwars.view.fragment.favourite_planets"
@@ -167,10 +169,20 @@
         <action
             android:id="@+id/action_favourite_planets_to_favourite_planet_info"
             app:destination="@id/favourite_planet_info" />
+        <action
+            android:id="@+id/action_favourite_planets_to_favourites"
+            app:destination="@id/favourites" />
     </fragment>
     <fragment
         android:id="@+id/favourite_planet_info"
         android:name="com.example.starwars.view.fragment.favourite_planet_info"
         android:label="fragment_favourite_planet_info"
-        tools:layout="@layout/fragment_favourite_planet_info" />
+        tools:layout="@layout/fragment_favourite_planet_info" >
+        <action
+            android:id="@+id/action_favourite_planet_info_to_favourite_planets"
+            app:destination="@id/favourite_planets" />
+        <action
+            android:id="@+id/action_favourite_planet_info_to_favourites"
+            app:destination="@id/favourites" />
+    </fragment>
 </navigation>

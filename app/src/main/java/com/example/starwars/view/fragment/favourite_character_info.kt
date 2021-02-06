@@ -14,7 +14,7 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [favourite_character_info.newInstance] factory method to
+ * Use the [favourite_characters.newInstance] factory method to
  * create an instance of this fragment.
  */
 class favourite_character_info : Fragment() {
@@ -45,12 +45,12 @@ class favourite_character_info : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment favourite_character_info.
+         * @return A new instance of fragment favourite_characters.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            favourite_character_info().apply {
+            favourite_characters().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
