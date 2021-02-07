@@ -3,6 +3,7 @@ package com.example.starwars.view.fragment
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -22,6 +23,8 @@ import com.example.starwars.viewmodel.viewModels.PlanetInfoViewModel
 import kotlinx.android.synthetic.main.fragment_character_info.*
 import kotlinx.android.synthetic.main.fragment_movie_info.*
 import kotlinx.android.synthetic.main.fragment_planet_info.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -69,6 +72,7 @@ class MovieInfo : Fragment() {
 
         movieInfoViewModel.planets.observe(viewLifecycleOwner, { adapter1.notifyDataSetChanged() })
         movieInfoViewModel.characters.observe(viewLifecycleOwner, { adapter2.notifyDataSetChanged() })
+        movieInfoViewModel.isF.observe(viewLifecycleOwner) { checkBox_favouriteMovie.isChecked = movieInfoViewModel.isF.value?:false  }
 
 
 
@@ -104,6 +108,21 @@ class MovieInfo : Fragment() {
         button_goToMainMenuFromMovieInfo.setOnClickListener {
                 view->view.findNavController().navigate(R.id.action_movieInfo_to_mainMenu)
         }
+        checkBox_favouriteMovie.setOnClickListener {  view ->
+            if(checkBox_favouriteMovie.isChecked)
+            {
+                Log.d("XX","checked")
+                movieInfoViewModel.add(mainViewModel.selectedFilm)
+            }
+            else
+            {
+                Log.d("XX","unchecked")
+                GlobalScope.launch{
+                    movieInfoViewModel.remove(mainViewModel.selectedFilm)
+                }
+
+
+            }}
 
     }
     companion object {

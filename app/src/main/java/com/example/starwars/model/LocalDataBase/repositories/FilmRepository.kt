@@ -15,6 +15,14 @@ class FilmRepository(private val filmDao: FilmDao) {
         filmDao.deleteFilm(film)
     }
 
+   fun delete(title:String){
+        filmDao.deleteMovieByTitle(title)
+    }
+
+    suspend fun isFav(title: String):Boolean{
+        return filmDao.isInDatabase(title)
+    }
+
     fun allFilms(): LiveData<List<FavFilm>>
     {
         return filmDao.allFilms()

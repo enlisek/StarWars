@@ -52,12 +52,7 @@ class CharacterInfoViewModel(application: Application):AndroidViewModel(applicat
         }
     }
     fun isFavourite(name:String){
-//        viewModelScope.launch {
-//            var response = personRepository.isFav(name)
-//           delay(2000)
-//            _isF.value = response.value
-//            Log.d("blanla", isF.toString())
-//        }
+
         viewModelScope.launch{
             _isF.value=personRepository.isFav(name)
         }

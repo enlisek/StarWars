@@ -33,7 +33,7 @@ class PlanetAdapter(var data: LiveData<List<Planet>>,val mainViewModel: MainView
             mainViewModel.selectedPlanet = data.value?.get(position)!!
             planetInfoViewModel.getFilmsFromUrlList(mainViewModel.selectedPlanet.films)
             planetInfoViewModel.getPeopleFromUrlList(mainViewModel.selectedPlanet.residents)
-
+            planetInfoViewModel.isFavourite(mainViewModel.selectedPlanet.name)
             view.findNavController().navigate(R.id.action_planetList2_to_planetInfo) }
         }
     }

@@ -15,6 +15,12 @@ interface FilmDao {
     @Delete
     suspend fun deleteFilm(film:FavFilm)
 
+    @Query("delete from film_table where title = :title ")
+    fun deleteMovieByTitle(title:String)
+
     @Query("Select * from film_table")
     fun allFilms(): LiveData<List<FavFilm>>
+    @Query ("select EXISTS(select * from film_table where title = :title)")
+    suspend fun isInDatabase(title:String): Boolean
+
 }

@@ -14,8 +14,16 @@ class PlanetRepository(private val planetDao: PlanetDao) {
         planetDao.deletePlanet(planet)
     }
 
+    fun delete(name:String){
+        planetDao.deletePlanetByName(name)
+    }
+
     fun allPlanets(): LiveData<List<FavPlanet>>
     {
         return planetDao.allPlanets()
+    }
+    suspend fun isFav(name: String):Boolean
+    {
+        return planetDao.isInDatabase(name)
     }
 }

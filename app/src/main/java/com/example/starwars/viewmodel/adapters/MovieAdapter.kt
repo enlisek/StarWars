@@ -35,7 +35,7 @@ class MovieAdapter(var data: LiveData<List<Film>>,val mainViewModel: MainViewMod
             mainViewModel.selectedFilm = data.value?.get(position)!!
             movieInfoViewModel.getPeopleFromUrlList(mainViewModel.selectedFilm.characters)
             movieInfoViewModel.getPlanetsByUrlList(mainViewModel.selectedFilm.planets)
-
+            movieInfoViewModel.isFavourite(mainViewModel.selectedFilm.title)
 
             view.findNavController().navigate(R.id.action_movieList2_to_movieInfo) }
         }

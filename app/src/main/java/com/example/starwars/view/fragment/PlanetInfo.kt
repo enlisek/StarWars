@@ -21,6 +21,8 @@ import com.example.starwars.viewmodel.viewModels.PlanetInfoViewModel
 import kotlinx.android.synthetic.main.fragment_character_info.*
 import kotlinx.android.synthetic.main.fragment_movie_info.*
 import kotlinx.android.synthetic.main.fragment_planet_info.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -68,7 +70,7 @@ class PlanetInfo : Fragment() {
 
         planetInfoViewModel.movies.observe(viewLifecycleOwner, { adapter1.notifyDataSetChanged() })
         planetInfoViewModel.characters.observe(viewLifecycleOwner, { adapter2.notifyDataSetChanged() })
-
+        planetInfoViewModel.isF.observe(viewLifecycleOwner){checkBox_favouritePlanet.isChecked = planetInfoViewModel.isF.value?:false}
 
         return inflater.inflate(R.layout.fragment_planet_info, container, false)
     }
@@ -105,6 +107,16 @@ class PlanetInfo : Fragment() {
                 view->view.findNavController().navigate(R.id.action_planetInfo_to_mainMenu)
         }
 
+        checkBox_favouritePlanet.setOnClickListener { view ->
+            if (checkBox_favouritePlanet.isChecked){
+                planetInfoViewModel.add(mainViewModel.selectedPlanet)
+            }
+            else{
+                GlobalScope.launch {
+                    planetInfoViewModel.remove(mainViewModel.selectedPlanet)
+                }
+            }
+        }
     }
 
     companion object {
