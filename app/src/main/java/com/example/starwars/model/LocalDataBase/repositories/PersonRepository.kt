@@ -1,5 +1,6 @@
 package com.example.starwars.model.LocalDataBase.repositories
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import com.example.starwars.model.LocalDataBase.dao.PersonDao
 import com.example.starwars.model.LocalDataBase.entities.FavPerson
@@ -15,17 +16,19 @@ class PersonRepository(private val personDao: PersonDao) {
         personDao.deletePerson(person)
     }
 
+    fun delete(name: String){
+        personDao.deletePersonByName(name)
+    }
+
     fun allPeople(): LiveData<List<FavPerson>>
     {
         return personDao.allPeople()
     }
 
-    fun ifFav(name: String) : Boolean
+    fun isFav(name: String) : LiveData<Boolean>
     {
-        if (personDao.findByName(name) != null)
-        {
-            return true
-        }
-        return false
+//        Log.d("XD",personDao.findByName(name).value.toString())
+       return personDao.isInDatabase(name)
     }
+
 }

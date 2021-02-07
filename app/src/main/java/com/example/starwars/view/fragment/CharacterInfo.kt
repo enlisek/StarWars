@@ -23,6 +23,8 @@ import com.example.starwars.viewmodel.viewModels.CharacterListViewModel
 import kotlinx.android.synthetic.main.fragment_character_info.*
 import kotlinx.android.synthetic.main.fragment_character_list.*
 import kotlinx.android.synthetic.main.fragment_main_menu.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -57,25 +59,30 @@ class CharacterInfo : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+//        checkBox_favouriteCharacter.setOnClickListener { v-> if (v.isCh) }
         mainViewModel =  ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
         characterInfoViewModel = ViewModelProvider(requireActivity()).get(CharacterInfoViewModel::class.java)
         viewManager = LinearLayoutManager(requireContext())
         adapter1 = SelectedMovieAdapter(characterInfoViewModel.movies,mainViewModel)
         characterInfoViewModel.movies.observe(viewLifecycleOwner, { adapter1.notifyDataSetChanged() })
-        characterInfoViewModel.homeworld.observe(viewLifecycleOwner, Observer {textView_character_homeworld.text="Homeworld: ${characterInfoViewModel.homeworld.value?.name}" })
+        characterInfoViewModel.homeworld.observe(viewLifecycleOwner) {textView_character_homeworld.text="Homeworld: ${characterInfoViewModel.homeworld.value?.name}" }
+        Log.d("xD",mainViewModel.selectedCharacter.name)
+        //characterInfoViewModel.isFavourite(mainViewModel.selectedCharacter.name)
+        characterInfoViewModel.isF.observe(viewLifecycleOwner) { checkBox_favouriteCharacter.isChecked = characterInfoViewModel.isF.value?:false  }
         return inflater.inflate(R.layout.fragment_character_info, container, false)
     }
 
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+//        characterInfoViewModel.isF.observe(viewLifecycleOwner, Observer { checkBox_favouriteCharacter.isChecked = characterInfoViewModel.isF.value?:false  })
 
         adapter1.notifyDataSetChanged()
         recyclerView_character_movies.apply {
             adapter = adapter1
             layoutManager = viewManager
         }
-
+//        checkBox_favouriteCharacter.isChecked = true
         textView_characterName.text = mainViewModel.selectedCharacter.name
         textView_characterHeight.text = "Height: ${mainViewModel.selectedCharacter.height}"
         textview_characterWeight.text = "Weight: ${mainViewModel.selectedCharacter.mass}"
@@ -84,28 +91,44 @@ class CharacterInfo : Fragment() {
         textview_skinColor.text = "Skin color: ${mainViewModel.selectedCharacter.skin_color}"
         textview_genderOfCharacter.text = "Gender: ${mainViewModel.selectedCharacter.gender}"
         textview_eyeColor.text = "Eye color: ${mainViewModel.selectedCharacter.eye_color}"
-
-
+//        characterInfoViewModel.isFavourite(mainViewModel.selectedCharacter.name)
         button_goToCharacterListFromCharacterInfo.setOnClickListener {
                 view->view.findNavController().navigate(R.id.action_characterInfo_to_characterList2)
         }
-         button_goToMainMenuFromCharacterInfo.setOnClickListener {
-                view->view.findNavController().navigate(R.id.action_characterInfo_to_mainMenu)
-        }
-        checkBox_favouriteCharacter.setOnCheckedChangeListener { buttonView, isChecked ->
-            if(isChecked)
-            {
-                Log.d("XX","checked")
-                //dodaj do lokalnej bazy danych
-            }
-            else
-            {
-                Log.d("XX","unchecked")
-                //usun z lokalnej bazy
-
-            }}
-
-    }
+         button_goToMainMenuFromCharacterInfo.setOnClickListener { view ->
+             view.findNavController().navigate(R.id.action_characterInfo_to_mainMenu)
+//        }
+//        checkBox_favouriteCharacter.setOnCheckedChangeListener { buttonView, isChecked ->
+//            if(isChecked)
+//            {
+//                Log.d("XX","checked")
+//               characterInfoViewModel.add(mainViewModel.selectedCharacter)
+//            }
+//            else
+//            {
+//                Log.d("XX","unchecked")
+//                GlobalScope.launch{
+//                    characterInfoViewModel.remove(mainViewModel.selectedCharacter)
+//                }
+//
+//
+//            }}
+//        checkBox_favouriteCharacter.setOnClickListener {  view ->
+//            if(view.isCh)
+//            {
+//                Log.d("XX","checked")
+//                characterInfoViewModel.add(mainViewModel.selectedCharacter)
+//            }
+//            else
+//            {
+//                Log.d("XX","unchecked")
+//                GlobalScope.launch{
+//                    characterInfoViewModel.remove(mainViewModel.selectedCharacter)
+//                }
+//
+//
+//            }}
+         }}
 
     companion object {
         /**

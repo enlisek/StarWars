@@ -35,6 +35,9 @@ class CharacterAdapter(var data: LiveData<List<Person>>,val mainViewModel: MainV
     //        mainViewModel.setHomeworld(mainViewModel.selectedCharacter.homeworld)
             characterInfoViewModel.getFilmsFromUrlList(mainViewModel.selectedCharacter.films)
             characterInfoViewModel.setPlanetFromUrl(mainViewModel.selectedCharacter.homeworld)
+            Log.d("XXX", characterInfoViewModel.isF.value.toString())
+            characterInfoViewModel.isFavourite(mainViewModel.selectedCharacter.name)
+            Log.d("XXX", characterInfoViewModel.isF.value.toString())
             view.findNavController().navigate(R.id.action_characterList2_to_characterInfo) }
         }
 

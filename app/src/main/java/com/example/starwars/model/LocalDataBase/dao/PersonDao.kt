@@ -20,4 +20,11 @@ interface PersonDao {
 
     @Query ("Select * from person_table where name = :person_name ")
     fun findByName(person_name:String): LiveData<List<FavPerson>>
+
+    @Query ("delete from person_table where name = :person_name ")
+    fun deletePersonByName(person_name:String)
+
+    @Query ("select EXISTS(select * from person_table where name = :person_name)")
+    fun isInDatabase(person_name:String): LiveData<Boolean>
+
 }

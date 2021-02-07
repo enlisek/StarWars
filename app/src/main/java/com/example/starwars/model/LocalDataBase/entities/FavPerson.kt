@@ -13,5 +13,6 @@ data class FavPerson(
     val eye_color: String,
     val birth_year: String,
     val gender: String,
-    val homeworld: String
+    val homeworld: String,
+//    val movies: List<String>
 )

@@ -103,6 +103,19 @@ class StarWarsRepository {
 
         }
 
+    suspend fun getFilmTitlesFromUrlList(list: List<String>) : List<String>
+        {
+            var listOfFilms = mutableListOf<String>()
+            for (item in list)
+            {
+                listOfFilms.add(StarWarsService.api.getFilmByUrl(item).awaitResponse().body()!!.title)
+            }
+            return listOfFilms
+
+        }
+
+
+
 //        suspend fun getAllPlanets(): List<Planet> {
 //            return StarWarsService.api.getAllPlanets().awaitResponse().body()?: listOf()
 //        }
