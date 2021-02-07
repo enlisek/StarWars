@@ -65,10 +65,10 @@ class CharacterInfoViewModel(application: Application):AndroidViewModel(applicat
 
     }
     fun add(person:Person){
-        var listOfMovies = mutableListOf<String>()
-        for (item in movies.value!!){
-            listOfMovies.add(item.title)
-        }
+//        var listOfMovies = mutableListOf<String>()
+//        for (item in movies.value!!){
+//            listOfMovies.add(item.title)
+//        }
         var favPerson = FavPerson(
             person.name,
             person.height,
@@ -78,10 +78,8 @@ class CharacterInfoViewModel(application: Application):AndroidViewModel(applicat
             person.eye_color,
             person.birth_year,
             person.gender,
-            homeworld.value!!.name,
-//            listOfMovies
-
-        )
+            homeworld.value!!.name //listOfMovies
+            )
         viewModelScope.launch{
             personRepository.add(favPerson)
         }

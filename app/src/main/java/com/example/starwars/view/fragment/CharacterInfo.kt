@@ -59,15 +59,13 @@ class CharacterInfo : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-//        checkBox_favouriteCharacter.setOnClickListener { v-> if (v.isCh) }
         mainViewModel =  ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
         characterInfoViewModel = ViewModelProvider(requireActivity()).get(CharacterInfoViewModel::class.java)
         viewManager = LinearLayoutManager(requireContext())
         adapter1 = SelectedMovieAdapter(characterInfoViewModel.movies,mainViewModel)
         characterInfoViewModel.movies.observe(viewLifecycleOwner, { adapter1.notifyDataSetChanged() })
         characterInfoViewModel.homeworld.observe(viewLifecycleOwner) {textView_character_homeworld.text="Homeworld: ${characterInfoViewModel.homeworld.value?.name}" }
-        Log.d("xD",mainViewModel.selectedCharacter.name)
-        //characterInfoViewModel.isFavourite(mainViewModel.selectedCharacter.name)
+
         characterInfoViewModel.isF.observe(viewLifecycleOwner) { checkBox_favouriteCharacter.isChecked = characterInfoViewModel.isF.value?:false  }
         return inflater.inflate(R.layout.fragment_character_info, container, false)
     }
