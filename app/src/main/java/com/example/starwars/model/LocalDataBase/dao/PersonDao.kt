@@ -25,6 +25,6 @@ interface PersonDao {
     fun deletePersonByName(person_name:String)
 
     @Query ("select EXISTS(select * from person_table where name = :person_name)")
-    fun isInDatabase(person_name:String): LiveData<Boolean>
+    suspend fun isInDatabase(person_name:String): Boolean
 
 }

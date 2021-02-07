@@ -91,44 +91,29 @@ class CharacterInfo : Fragment() {
         textview_skinColor.text = "Skin color: ${mainViewModel.selectedCharacter.skin_color}"
         textview_genderOfCharacter.text = "Gender: ${mainViewModel.selectedCharacter.gender}"
         textview_eyeColor.text = "Eye color: ${mainViewModel.selectedCharacter.eye_color}"
-//        characterInfoViewModel.isFavourite(mainViewModel.selectedCharacter.name)
+
         button_goToCharacterListFromCharacterInfo.setOnClickListener {
                 view->view.findNavController().navigate(R.id.action_characterInfo_to_characterList2)
         }
          button_goToMainMenuFromCharacterInfo.setOnClickListener { view ->
              view.findNavController().navigate(R.id.action_characterInfo_to_mainMenu)
-//        }
-//        checkBox_favouriteCharacter.setOnCheckedChangeListener { buttonView, isChecked ->
-//            if(isChecked)
-//            {
-//                Log.d("XX","checked")
-//               characterInfoViewModel.add(mainViewModel.selectedCharacter)
-//            }
-//            else
-//            {
-//                Log.d("XX","unchecked")
-//                GlobalScope.launch{
-//                    characterInfoViewModel.remove(mainViewModel.selectedCharacter)
-//                }
-//
-//
-//            }}
-//        checkBox_favouriteCharacter.setOnClickListener {  view ->
-//            if(view.isCh)
-//            {
-//                Log.d("XX","checked")
-//                characterInfoViewModel.add(mainViewModel.selectedCharacter)
-//            }
-//            else
-//            {
-//                Log.d("XX","unchecked")
-//                GlobalScope.launch{
-//                    characterInfoViewModel.remove(mainViewModel.selectedCharacter)
-//                }
-//
-//
-//            }}
-         }}
+       }
+
+        checkBox_favouriteCharacter.setOnClickListener {  view ->
+            if(checkBox_favouriteCharacter.isChecked)
+            {
+                Log.d("XX","checked")
+                characterInfoViewModel.add(mainViewModel.selectedCharacter)
+            }
+            else
+            {
+                Log.d("XX","unchecked")
+                GlobalScope.launch{
+                    characterInfoViewModel.remove(mainViewModel.selectedCharacter)
+                }
+
+
+            }}}
 
     companion object {
         /**

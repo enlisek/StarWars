@@ -25,7 +25,7 @@ class PersonRepository(private val personDao: PersonDao) {
         return personDao.allPeople()
     }
 
-    fun isFav(name: String) : LiveData<Boolean>
+    suspend fun isFav(name: String) : Boolean
     {
 //        Log.d("XD",personDao.findByName(name).value.toString())
        return personDao.isInDatabase(name)

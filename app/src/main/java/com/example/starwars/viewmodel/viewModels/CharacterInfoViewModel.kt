@@ -3,6 +3,7 @@ package com.example.starwars.viewmodel.viewModels
 import android.app.Application
 
 import android.database.Observable
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -51,10 +52,14 @@ class CharacterInfoViewModel(application: Application):AndroidViewModel(applicat
         }
     }
     fun isFavourite(name:String){
-        viewModelScope.launch {
-            var response = personRepository.isFav(name)
-           delay(1000)
-            _isF.value = response.value
+//        viewModelScope.launch {
+//            var response = personRepository.isFav(name)
+//           delay(2000)
+//            _isF.value = response.value
+//            Log.d("blanla", isF.toString())
+//        }
+        viewModelScope.launch{
+            _isF.value=personRepository.isFav(name)
         }
 
 
