@@ -61,9 +61,9 @@ class PlanetInfoViewModel(application: Application):AndroidViewModel(application
     fun add(planet: Planet){
         var favPlanet = FavPlanet(
         planet.name,
-        planet.rotation_period.toInt(),
-        planet.orbital_period.toInt(),
-        planet.diameter.toInt(),
+        planet.rotation_period,
+        planet.orbital_period,
+        planet.diameter,
         planet.climate,
         planet.terrain,
         planet.population

@@ -65,7 +65,7 @@ class favourite_movie : Fragment() {
         textView_favouriteMovieProducer.text = "Producer: ${favouritiesViewModel.selectedFilm.producer}"
 
         buttonBackToFavouriteMovies.setOnClickListener {
-            view->view.findNavController().navigate(R.id.action_favourite_planet_info_to_favourite_planets)
+            view->view.findNavController().navigate(R.id.action_favourite_movie_to_favourite_movies)
         }
 
         checkBox_favouriteMovieInFavouriteMovieInfo.setOnClickListener {  view ->
