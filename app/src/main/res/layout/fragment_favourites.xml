@@ -1,42 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout6"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="16dp"
-    android:orientation="vertical"
     tools:context=".view.fragment.Favourites">
 
     <Button
         android:id="@+id/button_goToFavouriteMovies"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="@color/button_style"
-        android:text="@string/button_goToFavouriteMovies" />
+        android:text="@string/button_goToFavouriteMovies"
+        app:layout_constraintBottom_toTopOf="@+id/button_goToFavouriteCharacter"
+        app:layout_constraintEnd_toEndOf="@+id/button_goToFavouriteCharacter"
+        app:layout_constraintStart_toStartOf="@+id/button_goToFavouriteCharacter" />
 
     <Button
         android:id="@+id/button_goToFavouriteCharacter"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="@color/button_style"
-        android:text="@string/button_goToFavouriteCharacter" />
+        android:text="@string/button_goToFavouriteCharacter"
+        app:layout_constraintBottom_toTopOf="@+id/button_goToFavouritePlanet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/button_goToFavouritePlanet" />
 
     <Button
         android:id="@+id/button_goToFavouritePlanet"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="@color/button_style"
-        android:text="@string/button_goToFavouritePlanet" />
+        android:text="@string/button_goToFavouritePlanet"
+        app:layout_constraintBottom_toTopOf="@+id/button_goToMainMenuFromFavourites"
+        app:layout_constraintEnd_toEndOf="@+id/button_goToMainMenuFromFavourites"
+        app:layout_constraintStart_toStartOf="@+id/button_goToMainMenuFromFavourites" />
 
     <Button
         android:id="@+id/button_goToMainMenuFromFavourites"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
         android:backgroundTint="@color/button_style"
-        android:text="@string/button_goToMainMenuFromFavourites" />
-</LinearLayout>
+        android:text="@string/button_goToMainMenuFromFavourites"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView_favourites"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/favourites_image"
+        app:layout_constraintBottom_toTopOf="@+id/button_goToFavouriteMovies"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

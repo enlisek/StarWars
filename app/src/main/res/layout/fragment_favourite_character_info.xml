@@ -22,7 +22,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -54,84 +54,94 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_weight="4"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textview_heightOfFavouriteCharacter"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-                android:textColor="#FFFFFF" />
+                <TextView
+                    android:id="@+id/textView_genderOfFavouriteCharacter"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#FFFFFF" />
 
-            <TextView
-                android:id="@+id/textView_WeightOfFavouriteCharacter"
-                android:layout_width="0dp"
+                <TextView
+                    android:id="@+id/textView_eyeColorOfFavouriteCharacter"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-                android:textColor="#FFFFFF" />
+                <TextView
+                    android:id="@+id/textView_hairColorOfFavouriteCharacter"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#FFFFFF" />
 
-            <TextView
-                android:id="@+id/textView_dateOfBirthOfFavouriteCharacter"
-                android:layout_width="0dp"
+                <TextView
+                    android:id="@+id/textView_skinColorOfFavouriteCharacter"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-                android:textColor="#FFFFFF" />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/textview_heightOfFavouriteCharacter"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
-            android:gravity="center"
-            android:orientation="horizontal">
+                    android:textColor="#FFFFFF" />
 
-            <TextView
-                android:id="@+id/textView_hairColorOfFavouriteCharacter"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="#FFFFFF"/>
+                <TextView
+                    android:id="@+id/textView_WeightOfFavouriteCharacter"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
 
-            <TextView
-                android:id="@+id/textView_skinColorOfFavouriteCharacter"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="#FFFFFF"/>
-        </LinearLayout>
+                    android:textColor="#FFFFFF" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
-            android:gravity="center"
-            android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/textView_dateOfBirthOfFavouriteCharacter"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
 
-            <TextView
-                android:id="@+id/textView_genderOfFavouriteCharacter"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="#FFFFFF" />
-
-            <TextView
-                android:id="@+id/textView_eyeColorOfFavouriteCharacter"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="#FFFFFF" />
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
         </LinearLayout>
 
         <Button
             android:id="@+id/buttonBackToFavouriteCharacters"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="80dp"
+            android:layout_weight="0"
             android:text="Back to favourite characters" />
 
     </LinearLayout>

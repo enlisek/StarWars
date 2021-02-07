@@ -11,48 +11,48 @@
     <Button
         android:id="@+id/button_goToFavoritesFromMainMenu"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="80dp"
         android:layout_marginBottom="32dp"
+        android:backgroundTint="@color/button_style"
         android:text="@string/button_goToFavoritesFromMainMenu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/button_goToCharacterListFromMainMenu"
-        app:layout_constraintStart_toStartOf="@+id/button_goToCharacterListFromMainMenu"
-        android:backgroundTint="@color/button_style"/>
+        app:layout_constraintStart_toStartOf="@+id/button_goToCharacterListFromMainMenu" />
 
     <Button
         android:id="@+id/button_goToCharacterListFromMainMenu"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="80dp"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/button_style"
         android:text="@string/button_goToCharacterListFromMainMenu"
         app:layout_constraintBottom_toTopOf="@+id/button_goToFavoritesFromMainMenu"
         app:layout_constraintEnd_toEndOf="@+id/button_goToPlanetListFromMainMenu"
-        app:layout_constraintStart_toStartOf="@+id/button_goToPlanetListFromMainMenu"
-        android:backgroundTint="@color/button_style"/>
+        app:layout_constraintStart_toStartOf="@+id/button_goToPlanetListFromMainMenu" />
 
     <Button
         android:id="@+id/button_goToPlanetListFromMainMenu"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="80dp"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/button_style"
         android:text="@string/button_goToPlanetListFromMainMenu"
         app:layout_constraintBottom_toTopOf="@+id/button_goToCharacterListFromMainMenu"
         app:layout_constraintEnd_toEndOf="@+id/button_goToMovieListFromMainMenu"
-        app:layout_constraintStart_toStartOf="@+id/button_goToMovieListFromMainMenu"
-        android:backgroundTint="@color/button_style"/>
+        app:layout_constraintStart_toStartOf="@+id/button_goToMovieListFromMainMenu" />
 
     <Button
         android:id="@+id/button_goToMovieListFromMainMenu"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="80dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/button_style"
         android:text="@string/button_goToMovieListFromMainMenu"
         app:layout_constraintBottom_toTopOf="@+id/button_goToPlanetListFromMainMenu"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:backgroundTint="@color/button_style"/>
+        app:layout_constraintStart_toStartOf="parent" />
     <!--        -->
     <ImageView
         android:id="@+id/imageView"

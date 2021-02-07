@@ -11,6 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,16 +22,18 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
             android:gravity="center"
             android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/imageView_favouritePlanet"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-              android:src="@drawable/planet_image" />
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:src="@drawable/planet_image" />
+
             <TextView
                 android:id="@+id/textView_nameOfFavouritePlanet"
                 android:layout_width="wrap_content"
@@ -38,8 +41,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_weight="3"
                 android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                />
+                android:textSize="18sp" />
 
             <CheckBox
                 android:id="@+id/checkBox_favouritePlanetInFavouritePlanetInfo"
@@ -51,75 +53,85 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView_rotationOfFavouritePlanet"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="#FFFFFF"/>
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/textView_orbitalOfFavouritePlanet"
-                android:layout_width="0dp"
+                <TextView
+                    android:id="@+id/textView_rotationOfFavouritePlanet"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:id="@+id/textView_orbitalOfFavouritePlanet"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="#FFFFFF"/>
-        </LinearLayout>
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
-            android:gravity="center"
-            android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/textView_diameterOfFavouritePlanet"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#FFFFFF" />
 
-            <TextView
-                android:id="@+id/textView_diameterOfFavouritePlanet"
-                android:layout_width="0dp"
+                <TextView
+                    android:id="@+id/textView_populationOfFavouritePlanet"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="#FFFFFF"/>
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/textView_populationOfFavouritePlanet"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="#FFFFFF"/>
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/textView_climateOfFavouritePlanet"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#FFFFFF" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
-            android:gravity="center"
-            android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/textView_terrainOfFavouritePlanet"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/textView_climateOfFavouritePlanet"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="#FFFFFF"/>
-
-            <TextView
-                android:id="@+id/textView_terrainOfFavouritePlanet"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="#FFFFFF"/>
         </LinearLayout>
 
         <Button
             android:id="@+id/buttonBackToFavouritePlanets"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="80dp"
             android:text="Back to favourite planets" />
 
     </LinearLayout>
