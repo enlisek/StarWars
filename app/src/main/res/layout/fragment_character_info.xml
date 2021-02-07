@@ -162,7 +162,8 @@
                     android:id="@+id/textView_character_homeworld"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:textColor="#FFFFFF" />
             </LinearLayout>
 
         </LinearLayout>
@@ -179,7 +180,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Movies:" />
+                android:text="Movies:"
+                android:textColor="#F3F3F3" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView_character_movies"

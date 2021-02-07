@@ -14,6 +14,7 @@ import com.example.starwars.R
 import com.example.starwars.viewmodel.adapters.CharacterAdapter
 import com.example.starwars.viewmodel.viewModels.CharacterListViewModel
 import com.example.starwars.viewmodel.MainViewModel
+import com.example.starwars.viewmodel.viewModels.CharacterInfoViewModel
 import kotlinx.android.synthetic.main.fragment_character_list.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -33,6 +34,7 @@ class CharacterList : Fragment() {
     private lateinit var adapter1 : CharacterAdapter
     private lateinit var viewManager: RecyclerView.LayoutManager
     private lateinit var characterListViewModel: CharacterListViewModel
+    private lateinit var characterInfoViewModel: CharacterInfoViewModel
     private lateinit var mainViewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,9 +51,11 @@ class CharacterList : Fragment() {
     ): View? {
         mainViewModel =  ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
         characterListViewModel = ViewModelProvider(requireActivity()).get(CharacterListViewModel::class.java)
+        characterInfoViewModel = ViewModelProvider(requireActivity()).get(CharacterInfoViewModel::class.java)
+
         viewManager = LinearLayoutManager(requireContext())
         //characterListViewModel.updateAllPeople()
-        adapter1 = CharacterAdapter(characterListViewModel.characters,mainViewModel)
+        adapter1 = CharacterAdapter(characterListViewModel.characters,mainViewModel,characterInfoViewModel)
         characterListViewModel.characters.observe(viewLifecycleOwner, { adapter1.notifyDataSetChanged() })
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_character_list, container, false)

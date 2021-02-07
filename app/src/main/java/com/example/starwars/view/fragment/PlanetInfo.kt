@@ -8,9 +8,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.observe
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.starwars.R
 import com.example.starwars.viewmodel.MainViewModel
+import com.example.starwars.viewmodel.adapters.SelectedCharacterAdapter
+import com.example.starwars.viewmodel.adapters.SelectedMovieAdapter
+import com.example.starwars.viewmodel.viewModels.CharacterInfoViewModel
+import com.example.starwars.viewmodel.viewModels.PlanetInfoViewModel
 import kotlinx.android.synthetic.main.fragment_character_info.*
 import kotlinx.android.synthetic.main.fragment_movie_info.*
 import kotlinx.android.synthetic.main.fragment_planet_info.*
@@ -30,6 +37,13 @@ class PlanetInfo : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private lateinit var mainViewModel: MainViewModel
+    private lateinit var planetInfoViewModel: PlanetInfoViewModel
+
+    private lateinit var adapter1 : SelectedMovieAdapter
+    private lateinit var adapter2 : SelectedCharacterAdapter
+    private lateinit var viewManager1: RecyclerView.LayoutManager
+    private lateinit var viewManager2: RecyclerView.LayoutManager
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,11 +59,33 @@ class PlanetInfo : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         mainViewModel =  ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
+        planetInfoViewModel = ViewModelProvider(requireActivity()).get(PlanetInfoViewModel::class.java)
+        viewManager1 = LinearLayoutManager(requireContext())
+        viewManager2 = LinearLayoutManager(requireContext())
+
+        adapter1 = SelectedMovieAdapter(planetInfoViewModel.movies,mainViewModel)
+        adapter2 = SelectedCharacterAdapter(planetInfoViewModel.characters,mainViewModel)
+
+        planetInfoViewModel.movies.observe(viewLifecycleOwner, { adapter1.notifyDataSetChanged() })
+        planetInfoViewModel.characters.observe(viewLifecycleOwner, { adapter2.notifyDataSetChanged() })
+
+
         return inflater.inflate(R.layout.fragment_planet_info, container, false)
     }
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        adapter1.notifyDataSetChanged()
+        recyclerView_planet_movies.apply {
+            adapter = adapter1
+            layoutManager = viewManager1
+        }
+        adapter2.notifyDataSetChanged()
+        recyclerView_planet_characters.apply {
+            adapter = adapter2
+            layoutManager = viewManager2
+        }
 
         textview_nameOfThePlanet.text = mainViewModel.selectedPlanet.name
         textview_rotation.text = "Rotation period: ${mainViewModel.selectedPlanet.rotation_period}"

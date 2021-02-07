@@ -7,11 +7,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.observe
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.starwars.R
 import com.example.starwars.viewmodel.MainViewModel
+import com.example.starwars.viewmodel.adapters.CharacterAdapter
+import com.example.starwars.viewmodel.adapters.SelectedMovieAdapter
+import com.example.starwars.viewmodel.adapters.SelectedPlanetAdapter
+import com.example.starwars.viewmodel.viewModels.CharacterInfoViewModel
+import com.example.starwars.viewmodel.viewModels.CharacterListViewModel
 import kotlinx.android.synthetic.main.fragment_character_info.*
+import kotlinx.android.synthetic.main.fragment_character_list.*
 import kotlinx.android.synthetic.main.fragment_main_menu.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -29,6 +39,10 @@ class CharacterInfo : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private lateinit var mainViewModel: MainViewModel
+    private lateinit var characterInfoViewModel: CharacterInfoViewModel
+
+    private lateinit var adapter1 : SelectedMovieAdapter
+    private lateinit var viewManager: RecyclerView.LayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,15 +56,25 @@ class CharacterInfo : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        mainViewModel =  ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
 
+        mainViewModel =  ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
+        characterInfoViewModel = ViewModelProvider(requireActivity()).get(CharacterInfoViewModel::class.java)
+        viewManager = LinearLayoutManager(requireContext())
+        adapter1 = SelectedMovieAdapter(characterInfoViewModel.movies,mainViewModel)
+        characterInfoViewModel.movies.observe(viewLifecycleOwner, { adapter1.notifyDataSetChanged() })
+        characterInfoViewModel.homeworld.observe(viewLifecycleOwner, Observer {textView_character_homeworld.text="Homeworld: ${characterInfoViewModel.homeworld.value?.name}" })
         return inflater.inflate(R.layout.fragment_character_info, container, false)
     }
 
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        adapter1.notifyDataSetChanged()
+        recyclerView_character_movies.apply {
+            adapter = adapter1
+            layoutManager = viewManager
+        }
 
         textView_characterName.text = mainViewModel.selectedCharacter.name
         textView_characterHeight.text = "Height: ${mainViewModel.selectedCharacter.height}"
@@ -60,7 +84,6 @@ class CharacterInfo : Fragment() {
         textview_skinColor.text = "Skin color: ${mainViewModel.selectedCharacter.skin_color}"
         textview_genderOfCharacter.text = "Gender: ${mainViewModel.selectedCharacter.gender}"
         textview_eyeColor.text = "Eye color: ${mainViewModel.selectedCharacter.eye_color}"
-        textView_character_homeworld.text = "Homeworld: ${mainViewModel.selectedCharacter.homeworld}"
 
 
         button_goToCharacterListFromCharacterInfo.setOnClickListener {

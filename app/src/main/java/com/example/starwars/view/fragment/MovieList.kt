@@ -14,6 +14,7 @@ import com.example.starwars.R
 import com.example.starwars.viewmodel.MainViewModel
 import com.example.starwars.viewmodel.adapters.MovieAdapter
 import com.example.starwars.viewmodel.viewModels.CharacterListViewModel
+import com.example.starwars.viewmodel.viewModels.MovieInfoViewModel
 import com.example.starwars.viewmodel.viewModels.MovieListViewModel
 import kotlinx.android.synthetic.main.fragment_movie_list.*
 
@@ -34,8 +35,9 @@ class MovieList : Fragment() {
     private lateinit var adapter1 : MovieAdapter
     private lateinit var viewManager: RecyclerView.LayoutManager
     private lateinit var movieListViewModel: MovieListViewModel
+    private lateinit var movieInfoViewModel: MovieInfoViewModel
+
     private lateinit var mainViewModel: MainViewModel
-    private lateinit var characterListViewModel: CharacterListViewModel
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,11 +54,12 @@ class MovieList : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         mainViewModel =  ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
-        characterListViewModel = ViewModelProvider(requireActivity()).get(CharacterListViewModel::class.java)
         movieListViewModel = ViewModelProvider(requireActivity()).get(MovieListViewModel::class.java)
+        movieInfoViewModel = ViewModelProvider(requireActivity()).get(MovieInfoViewModel::class.java)
+
         viewManager = LinearLayoutManager(requireContext())
         movieListViewModel.updateFilms()
-        adapter1 = MovieAdapter(movieListViewModel.films,mainViewModel,characterListViewModel)
+        adapter1 = MovieAdapter(movieListViewModel.films,mainViewModel,movieInfoViewModel)
         movieListViewModel.films.observe(viewLifecycleOwner, { adapter1.notifyDataSetChanged() })
         return inflater.inflate(R.layout.fragment_movie_list, container, false)
     }

@@ -2,16 +2,26 @@ package com.example.starwars.view.fragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.observe
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.starwars.R
 import com.example.starwars.viewmodel.MainViewModel
+import com.example.starwars.viewmodel.adapters.SelectedCharacterAdapter
+import com.example.starwars.viewmodel.adapters.SelectedMovieAdapter
+import com.example.starwars.viewmodel.adapters.SelectedPlanetAdapter
+import com.example.starwars.viewmodel.viewModels.MovieInfoViewModel
+import com.example.starwars.viewmodel.viewModels.PlanetInfoViewModel
 import kotlinx.android.synthetic.main.fragment_character_info.*
 import kotlinx.android.synthetic.main.fragment_movie_info.*
+import kotlinx.android.synthetic.main.fragment_planet_info.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,6 +38,12 @@ class MovieInfo : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private lateinit var mainViewModel: MainViewModel
+    private lateinit var movieInfoViewModel: MovieInfoViewModel
+
+    private lateinit var adapter1 : SelectedPlanetAdapter
+    private lateinit var adapter2 : SelectedCharacterAdapter
+    private lateinit var viewManager1: RecyclerView.LayoutManager
+    private lateinit var viewManager2: RecyclerView.LayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,11 +60,36 @@ class MovieInfo : Fragment() {
         // Inflate the layout for this fragment
         mainViewModel =  ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
 
+        movieInfoViewModel = ViewModelProvider(requireActivity()).get(MovieInfoViewModel::class.java)
+        viewManager1 = LinearLayoutManager(requireContext())
+        viewManager2 = LinearLayoutManager(requireContext())
+
+        adapter1 = SelectedPlanetAdapter(movieInfoViewModel.planets,mainViewModel)
+        adapter2 = SelectedCharacterAdapter(movieInfoViewModel.characters,mainViewModel)
+
+        movieInfoViewModel.planets.observe(viewLifecycleOwner, { adapter1.notifyDataSetChanged() })
+        movieInfoViewModel.characters.observe(viewLifecycleOwner, { adapter2.notifyDataSetChanged() })
+
+
+
         return inflater.inflate(R.layout.fragment_movie_info, container, false)
     }
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        adapter1.notifyDataSetChanged()
+        recyclerView_movie_planets.apply {
+            adapter = adapter1
+            layoutManager = viewManager1
+        }
+        adapter2.notifyDataSetChanged()
+        recyclerView_movie_characters.apply {
+            adapter = adapter2
+            layoutManager = viewManager2
+        }
+
+        textview_quotation.movementMethod= ScrollingMovementMethod()
 
         textview_titleOfMovie.text = mainViewModel.selectedFilm.title
         textview_quotation.text = mainViewModel.selectedFilm.opening_crawl

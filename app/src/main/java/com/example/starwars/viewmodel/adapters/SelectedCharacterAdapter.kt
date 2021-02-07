@@ -15,28 +15,19 @@ import com.example.starwars.viewmodel.MainViewModel
 import com.example.starwars.viewmodel.viewModels.CharacterInfoViewModel
 
 
-class CharacterAdapter(var data: LiveData<List<Person>>,val mainViewModel: MainViewModel, val characterInfoViewModel: CharacterInfoViewModel): RecyclerView.Adapter<CharacterAdapter.NoteHolder>() {
+class SelectedCharacterAdapter(var data: LiveData<List<Person>>,val mainViewModel: MainViewModel): RecyclerView.Adapter<SelectedCharacterAdapter.NoteHolder>() {
     lateinit  var context: Context
     class NoteHolder(view: View): RecyclerView.ViewHolder(view)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteHolder {
         val view= LayoutInflater.from(parent.context).
-        inflate(R.layout.one_row,parent,false) as View
+        inflate(R.layout.one_row_no_click,parent,false) as View
         return NoteHolder(view)
     }
 
     override fun onBindViewHolder(holder: NoteHolder, position: Int) {
-        val textViewOneRow = holder.itemView.findViewById<TextView>(R.id.textViewOneRow)
-        //val buttonOneRow = holder.itemView.findViewById<TextView>(R.id.buttonOneRow)
+        val textViewOneRow = holder.itemView.findViewById<TextView>(R.id.textView6)
         textViewOneRow.text = data.value?.get(position)?.name
-        textViewOneRow.setOnClickListener {
-            view-> run {
-            mainViewModel.selectedCharacter = data.value?.get(position)!!
-    //        mainViewModel.setHomeworld(mainViewModel.selectedCharacter.homeworld)
-            characterInfoViewModel.getFilmsFromUrlList(mainViewModel.selectedCharacter.films)
-            characterInfoViewModel.setPlanetFromUrl(mainViewModel.selectedCharacter.homeworld)
-            view.findNavController().navigate(R.id.action_characterList2_to_characterInfo) }
-        }
 
     }
 

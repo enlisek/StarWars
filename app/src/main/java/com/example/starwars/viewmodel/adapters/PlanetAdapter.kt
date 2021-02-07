@@ -10,8 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.starwars.R
 import com.example.starwars.model.entities.Planet
 import com.example.starwars.viewmodel.MainViewModel
+import com.example.starwars.viewmodel.viewModels.PlanetInfoViewModel
 
-class PlanetAdapter(var data: LiveData<List<Planet>>,val mainViewModel: MainViewModel): RecyclerView.Adapter<PlanetAdapter.NoteHolder>() {
+class PlanetAdapter(var data: LiveData<List<Planet>>,val mainViewModel: MainViewModel, val planetInfoViewModel: PlanetInfoViewModel): RecyclerView.Adapter<PlanetAdapter.NoteHolder>() {
     class NoteHolder(view: View): RecyclerView.ViewHolder(view)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteHolder {
@@ -30,8 +31,9 @@ class PlanetAdapter(var data: LiveData<List<Planet>>,val mainViewModel: MainView
         textViewOneRow.setOnClickListener {
                 view-> run {
             mainViewModel.selectedPlanet = data.value?.get(position)!!
-            mainViewModel.getPeopleFromUrlList(mainViewModel.selectedPlanet.residents)
-            mainViewModel.getFilmsFromUrlList(mainViewModel.selectedPlanet.films)
+            planetInfoViewModel.getFilmsFromUrlList(mainViewModel.selectedPlanet.films)
+            planetInfoViewModel.getPeopleFromUrlList(mainViewModel.selectedPlanet.residents)
+
             view.findNavController().navigate(R.id.action_planetList2_to_planetInfo) }
         }
     }

@@ -15,6 +15,7 @@ import com.example.starwars.viewmodel.MainViewModel
 import com.example.starwars.viewmodel.adapters.CharacterAdapter
 import com.example.starwars.viewmodel.adapters.PlanetAdapter
 import com.example.starwars.viewmodel.viewModels.CharacterListViewModel
+import com.example.starwars.viewmodel.viewModels.PlanetInfoViewModel
 import com.example.starwars.viewmodel.viewModels.PlanetListViewModel
 import kotlinx.android.synthetic.main.fragment_character_info.*
 import kotlinx.android.synthetic.main.fragment_character_list.*
@@ -37,6 +38,8 @@ class PlanetList : Fragment() {
     private lateinit var adapter1 : PlanetAdapter
     private lateinit var viewManager: RecyclerView.LayoutManager
     private lateinit var planetListViewModel: PlanetListViewModel
+    private lateinit var planetInfoViewModel: PlanetInfoViewModel
+
     private lateinit var mainViewModel: MainViewModel
 
 
@@ -55,9 +58,11 @@ class PlanetList : Fragment() {
         // Inflate the layout for this fragment
         mainViewModel =  ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
         planetListViewModel = ViewModelProvider(requireActivity()).get(PlanetListViewModel::class.java)
+        planetInfoViewModel = ViewModelProvider(requireActivity()).get(PlanetInfoViewModel::class.java)
+
         viewManager = LinearLayoutManager(requireContext())
         planetListViewModel.updatePlanets()
-        adapter1 = PlanetAdapter(planetListViewModel.planets,mainViewModel)
+        adapter1 = PlanetAdapter(planetListViewModel.planets,mainViewModel,planetInfoViewModel)
         planetListViewModel.planets.observe(viewLifecycleOwner, { adapter1.notifyDataSetChanged() })
         return inflater.inflate(R.layout.fragment_planet_list, container, false)
     }
