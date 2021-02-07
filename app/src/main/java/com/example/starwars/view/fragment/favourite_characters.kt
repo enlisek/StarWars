@@ -5,8 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.starwars.R
+import com.example.starwars.viewmodel.adapters.LocalCharacterAdapter
+import com.example.starwars.viewmodel.viewModels.FavouritiesViewModel
 import kotlinx.android.synthetic.main.fragment_favourite_characters.*
 import kotlinx.android.synthetic.main.fragment_movie_list.*
 
@@ -24,6 +30,9 @@ class favourite_characters : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var adapter1: LocalCharacterAdapter
+    private lateinit var viewManager1: RecyclerView.LayoutManager
+    private lateinit var favouritiesViewModel: FavouritiesViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +46,12 @@ class favourite_characters : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        favouritiesViewModel= ViewModelProvider(requireActivity()).get(FavouritiesViewModel::class.java)
+        viewManager1= LinearLayoutManager(requireContext())
+
+        adapter1= LocalCharacterAdapter(favouritiesViewModel.listOfCharacters,favouritiesViewModel)
+        favouritiesViewModel.listOfCharacters.observe(viewLifecycleOwner, Observer {
+            adapter1.notifyDataSetChanged()})
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_favourite_characters, container, false)
     }
@@ -44,6 +59,10 @@ class favourite_characters : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        recyclerView_favouriteCharacters.apply {
+            adapter=adapter1
+            layoutManager=viewManager1
+        }
         buttonBackFromCharactersToFavourites.setOnClickListener {
             view->view.findNavController().navigate(R.id.action_favourite_characters_to_favourites)
         }

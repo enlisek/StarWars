@@ -11,7 +11,7 @@ import com.example.starwars.model.LocalDataBase.entities.FavFilm
 import com.example.starwars.model.LocalDataBase.entities.FavPerson
 import com.example.starwars.model.LocalDataBase.entities.FavPlanet
 
-@Database(entities = [FavFilm::class, FavPerson::class, FavPlanet::class],version = 1,exportSchema = false)
+@Database(entities = [FavFilm::class, FavPerson::class, FavPlanet::class],version = 2,exportSchema = false)
 abstract class StarWarsDataBase:RoomDatabase() {
 
     abstract fun filmDao(): FilmDao
@@ -35,7 +35,7 @@ abstract class StarWarsDataBase:RoomDatabase() {
                         context.applicationContext,
                         StarWarsDataBase::class.java,
                         "my_database"
-                    ).build()
+                    ).fallbackToDestructiveMigration().build()
                     INSTANCE =instance
                     return instance
 

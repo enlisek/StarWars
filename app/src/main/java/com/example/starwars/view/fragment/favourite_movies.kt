@@ -5,10 +5,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.starwars.R
+import com.example.starwars.viewmodel.adapters.LocalFilmAdapter
+import com.example.starwars.viewmodel.adapters.LocalPlanetAdapter
+import com.example.starwars.viewmodel.viewModels.FavouritiesViewModel
 import kotlinx.android.synthetic.main.fragment_favourite_characters.*
 import kotlinx.android.synthetic.main.fragment_favourite_movies.*
+import kotlinx.android.synthetic.main.fragment_favourite_planets.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,6 +32,10 @@ class favourite_movies : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var adapter1: LocalFilmAdapter
+    private lateinit var viewManager1: RecyclerView.LayoutManager
+    private lateinit var favouritiesViewModel: FavouritiesViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,12 +51,22 @@ class favourite_movies : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        favouritiesViewModel= ViewModelProvider(requireActivity()).get(FavouritiesViewModel::class.java)
+        viewManager1= LinearLayoutManager(requireContext())
+
+        adapter1= LocalFilmAdapter(favouritiesViewModel.listOfFilms,favouritiesViewModel)
+        favouritiesViewModel.listOfFilms.observe(viewLifecycleOwner, Observer {
+            adapter1.notifyDataSetChanged()})
         return inflater.inflate(R.layout.fragment_favourite_movies, container, false)
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        recyclerView_favouriteMovies.apply {
+            adapter=adapter1
+            layoutManager=viewManager1
+        }
 
         buttonBackFromMoviesToFavourites.setOnClickListener {
             view->view.findNavController().navigate(R.id.action_favourite_movies_to_favourites)
