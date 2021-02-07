@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import com.example.starwars.R
+import kotlinx.android.synthetic.main.fragment_favourite_characters.*
+import kotlinx.android.synthetic.main.fragment_favourite_movies.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,12 +33,22 @@ class favourite_movies : Fragment() {
         }
     }
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_favourite_movies, container, false)
+    }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        buttonBackFromMoviesToFavourites.setOnClickListener {
+            view->view.findNavController().navigate(R.id.action_favourite_movies_to_favourites)
+        }
     }
 
     companion object {
