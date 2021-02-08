@@ -83,7 +83,9 @@ class favourite_planet_info : Fragment() {
                 }
 
 
-            }}}
+            }
+        }
+    }
 
 
     companion object {

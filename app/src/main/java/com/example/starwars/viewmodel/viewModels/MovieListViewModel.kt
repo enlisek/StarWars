@@ -10,13 +10,10 @@ import com.example.starwars.model.repositories.StarWarsRepository
 import kotlinx.coroutines.launch
 
 class MovieListViewModel(application: Application): AndroidViewModel(application) {
-    private val starWarsRepository: StarWarsRepository
-    init {
-        starWarsRepository = StarWarsRepository()
-    }
-    private var _films: MutableLiveData<List<Film>> = MutableLiveData()
     val films: LiveData<List<Film>>
-    get() = _films
+        get() = _films
+    private val starWarsRepository: StarWarsRepository = StarWarsRepository()
+    private var _films: MutableLiveData<List<Film>> = MutableLiveData()
 
     fun updateFilms()
     {
@@ -24,7 +21,5 @@ class MovieListViewModel(application: Application): AndroidViewModel(application
             _films.value=starWarsRepository.getAllFilms().results
         }
     }
-
-
 
 }

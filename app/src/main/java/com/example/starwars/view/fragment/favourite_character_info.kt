@@ -47,6 +47,7 @@ class favourite_character_info : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         favouritiesViewModel = ViewModelProvider(requireActivity()).get(FavouritiesViewModel::class.java)
 
         // Inflate the layout for this fragment
@@ -57,6 +58,7 @@ class favourite_character_info : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         checkBox_favourtieCharacteInFavouriteCharacterInfo.isChecked = true
 
         textView_nameOfFavouriteCharacter.text = favouritiesViewModel.selectedCharacter.name
@@ -86,7 +88,9 @@ class favourite_character_info : Fragment() {
                 }
 
 
-            }}}
+            }
+        }
+    }
 
     companion object {
         /**

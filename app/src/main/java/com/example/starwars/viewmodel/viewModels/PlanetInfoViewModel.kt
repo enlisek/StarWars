@@ -17,24 +17,28 @@ import com.example.starwars.model.repositories.StarWarsRepository
 import kotlinx.coroutines.launch
 
 class PlanetInfoViewModel(application: Application):AndroidViewModel(application) {
-    private val starWarsRepository: StarWarsRepository
-    private val planetRepository:PlanetRepository =
-       PlanetRepository(getDatabase(application).planetDao())
-    private var _isF:MutableLiveData<Boolean> = MutableLiveData()
-    init {
-        starWarsRepository = StarWarsRepository()
-        _isF.value = false
-    }
+
     val isF:LiveData<Boolean>
         get() =_isF
 
-    private var _movies: MutableLiveData<List<Film>> = MutableLiveData()
     val movies: LiveData<List<Film>>
         get() = _movies
 
-    private var _characters: MutableLiveData<List<Person>> = MutableLiveData()
     val characters: LiveData<List<Person>>
         get() = _characters
+
+
+    private val starWarsRepository: StarWarsRepository = StarWarsRepository()
+    private val planetRepository:PlanetRepository =
+       PlanetRepository(getDatabase(application).planetDao())
+    private var _movies: MutableLiveData<List<Film>> = MutableLiveData()
+    private var _isF:MutableLiveData<Boolean> = MutableLiveData()
+    private var _characters: MutableLiveData<List<Person>> = MutableLiveData()
+
+
+    init {
+        _isF.value = false
+    }
 
     fun getFilmsFromUrlList(list: List<String>)
     {

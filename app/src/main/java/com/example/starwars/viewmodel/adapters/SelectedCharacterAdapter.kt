@@ -26,7 +26,9 @@ class SelectedCharacterAdapter(var data: LiveData<List<Person>>,val mainViewMode
     }
 
     override fun onBindViewHolder(holder: NoteHolder, position: Int) {
+
         val textViewOneRow = holder.itemView.findViewById<TextView>(R.id.textView6)
+
         textViewOneRow.text = data.value?.get(position)?.name
 
     }

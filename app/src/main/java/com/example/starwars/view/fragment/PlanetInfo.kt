@@ -59,7 +59,7 @@ class PlanetInfo : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         mainViewModel =  ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
         planetInfoViewModel = ViewModelProvider(requireActivity()).get(PlanetInfoViewModel::class.java)
         viewManager1 = LinearLayoutManager(requireContext())
@@ -83,6 +83,7 @@ class PlanetInfo : Fragment() {
             adapter = adapter1
             layoutManager = viewManager1
         }
+
         adapter2.notifyDataSetChanged()
         recyclerView_planet_characters.apply {
             adapter = adapter2
@@ -103,6 +104,7 @@ class PlanetInfo : Fragment() {
         button_goToPlanetListFormPlanetInfo.setOnClickListener {
                 view->view.findNavController().navigate(R.id.action_planetInfo_to_planetList2)
         }
+
         button_goToMainMenuFromPlanetInfo.setOnClickListener {
                 view->view.findNavController().navigate(R.id.action_planetInfo_to_mainMenu)
         }

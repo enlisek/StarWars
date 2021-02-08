@@ -15,31 +15,35 @@ import com.example.starwars.model.repositories.StarWarsRepository
 import kotlinx.coroutines.launch
 
 class MovieInfoViewModel(application: Application):AndroidViewModel(application) {
-    private val starWarsRepository: StarWarsRepository
+
+    val isF:LiveData<Boolean>
+        get() =_isF
+
+    val planets: LiveData<List<Planet>>
+        get() = _planets
+
+
+    val characters: LiveData<List<Person>>
+        get() = _characters
+
+    private val starWarsRepository: StarWarsRepository = StarWarsRepository()
     private val filmRepository: FilmRepository =
         FilmRepository(StarWarsDataBase.getDatabase(application).filmDao())
     private var _isF:MutableLiveData<Boolean> = MutableLiveData()
-    init {
-        starWarsRepository = StarWarsRepository()
+    private var _planets: MutableLiveData<List<Planet>> = MutableLiveData()
+    private var _characters: MutableLiveData<List<Person>> = MutableLiveData()
+
+    init
+    {
         _isF.value = false
     }
+
     fun isFavourite(title:String){
 
         viewModelScope.launch{
             _isF.value=filmRepository.isFav(title)
         }
-
-
     }
-    val isF:LiveData<Boolean>
-        get() =_isF
-    private var _planets: MutableLiveData<List<Planet>> = MutableLiveData()
-    val planets: LiveData<List<Planet>>
-        get() = _planets
-
-    private var _characters: MutableLiveData<List<Person>> = MutableLiveData()
-    val characters: LiveData<List<Person>>
-        get() = _characters
 
     fun getPlanetsByUrlList(list: List<String>)
     {
@@ -56,7 +60,7 @@ class MovieInfoViewModel(application: Application):AndroidViewModel(application)
     }
 
     fun add(selectedFilm: Film) {
-        var favFilm:FavFilm = FavFilm(
+        var favFilm= FavFilm(
             selectedFilm.title,
             selectedFilm.episode_id,
             selectedFilm.opening_crawl,

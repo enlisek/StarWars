@@ -31,6 +31,7 @@ class CharacterList : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
     private lateinit var adapter1 : CharacterAdapter
     private lateinit var viewManager: RecyclerView.LayoutManager
     private lateinit var characterListViewModel: CharacterListViewModel
@@ -54,9 +55,10 @@ class CharacterList : Fragment() {
         characterInfoViewModel = ViewModelProvider(requireActivity()).get(CharacterInfoViewModel::class.java)
 
         viewManager = LinearLayoutManager(requireContext())
-        //characterListViewModel.updateAllPeople()
         adapter1 = CharacterAdapter(characterListViewModel.characters,mainViewModel,characterInfoViewModel)
+
         characterListViewModel.characters.observe(viewLifecycleOwner, { adapter1.notifyDataSetChanged() })
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_character_list, container, false)
     }

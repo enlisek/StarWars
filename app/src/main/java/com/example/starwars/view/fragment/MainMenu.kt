@@ -40,24 +40,28 @@ class MainMenu : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         characterListViewModel = ViewModelProvider(requireActivity()).get(CharacterListViewModel::class.java)
+
         return inflater.inflate(R.layout.fragment_main_menu, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         button_goToFavoritesFromMainMenu.setOnClickListener {
             view->view.findNavController().navigate(R.id.action_mainMenu_to_favourites)
         }
+
         button_goToCharacterListFromMainMenu.setOnClickListener {
             view-> view.findNavController().navigate(R.id.action_mainMenu_to_characterList2)
         }
+
         button_goToPlanetListFromMainMenu.setOnClickListener {
-                view-> view.findNavController().navigate(R.id.action_mainMenu_to_planetList2)
+            view-> view.findNavController().navigate(R.id.action_mainMenu_to_planetList2)
         }
+
        button_goToMovieListFromMainMenu.setOnClickListener {
-                view-> view.findNavController().navigate(R.id.action_mainMenu_to_movieList2)
+           view-> view.findNavController().navigate(R.id.action_mainMenu_to_movieList2)
         }
     }
     companion object {

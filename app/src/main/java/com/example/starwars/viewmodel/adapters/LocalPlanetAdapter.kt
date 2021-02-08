@@ -29,7 +29,9 @@ class LocalPlanetAdapter(var data: LiveData<List<FavPlanet>>, val favouritiesVie
         textViewOneRow.text = data.value?.get(position)?.name
         textViewOneRow.setOnClickListener {
             view-> run {
+
             favouritiesViewModel.selectedPlanet = data.value?.get(position)!!
+
             view.findNavController().navigate(R.id.action_favourite_planets_to_favourite_planet_info) }
         }
 

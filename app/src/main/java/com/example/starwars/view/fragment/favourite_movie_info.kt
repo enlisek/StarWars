@@ -56,6 +56,7 @@ class favourite_movie : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         checkBox_favouriteMovieInFavouriteMovieInfo.isChecked = true
 
         textView_titleOfFavouriteMovie.text = favouritiesViewModel.selectedFilm.title
@@ -80,7 +81,9 @@ class favourite_movie : Fragment() {
                 }
 
 
-            }}}
+            }
+        }
+    }
 
 
     companion object {

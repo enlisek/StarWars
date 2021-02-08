@@ -20,6 +20,7 @@ interface FilmDao {
 
     @Query("Select * from film_table")
     fun allFilms(): LiveData<List<FavFilm>>
+
     @Query ("select EXISTS(select * from film_table where title = :title)")
     suspend fun isInDatabase(title:String): Boolean
 

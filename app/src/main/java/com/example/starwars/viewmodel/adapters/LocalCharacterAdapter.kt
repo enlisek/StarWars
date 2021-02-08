@@ -30,7 +30,9 @@ class LocalCharacterAdapter(var data: LiveData<List<FavPerson>>, val favourities
         textViewOneRow.text = data.value?.get(position)?.name
         textViewOneRow.setOnClickListener {
             view-> run {
+
             favouritiesViewModel.selectedCharacter = data.value?.get(position)!!
+
             view.findNavController().navigate(R.id.action_favourite_characters_to_favourite_character_info) }
         }
 

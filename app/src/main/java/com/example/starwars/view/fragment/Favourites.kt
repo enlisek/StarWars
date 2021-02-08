@@ -42,15 +42,19 @@ class Favourites : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         button_goToFavouriteMovies.setOnClickListener {
                 view->view.findNavController().navigate(R.id.action_favourites_to_favourite_movies)
         }
+
         button_goToFavouriteCharacter.setOnClickListener {
                 view->view.findNavController().navigate(R.id.action_favourites_to_favourite_characters)
         }
+
         button_goToFavouritePlanet.setOnClickListener {
                 view->view.findNavController().navigate(R.id.action_favourites_to_favourite_planets)
         }
+
         button_goToMainMenuFromFavourites.setOnClickListener {
                 view->view.findNavController().navigate(R.id.action_favourites_to_mainMenu)
         }

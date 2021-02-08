@@ -27,17 +27,16 @@ class CharacterAdapter(var data: LiveData<List<Person>>,val mainViewModel: MainV
 
     override fun onBindViewHolder(holder: NoteHolder, position: Int) {
         val textViewOneRow = holder.itemView.findViewById<TextView>(R.id.textViewOneRow)
-        //val buttonOneRow = holder.itemView.findViewById<TextView>(R.id.buttonOneRow)
+
         textViewOneRow.text = data.value?.get(position)?.name
         textViewOneRow.setOnClickListener {
             view-> run {
             mainViewModel.selectedCharacter = data.value?.get(position)!!
-    //        mainViewModel.setHomeworld(mainViewModel.selectedCharacter.homeworld)
+
             characterInfoViewModel.getFilmsFromUrlList(mainViewModel.selectedCharacter.films)
             characterInfoViewModel.setPlanetFromUrl(mainViewModel.selectedCharacter.homeworld)
-            Log.d("XXX", characterInfoViewModel.isF.value.toString())
-           characterInfoViewModel.isFavourite(mainViewModel.selectedCharacter.name)
-            Log.d("XXX", characterInfoViewModel.isF.value.toString())
+            characterInfoViewModel.isFavourite(mainViewModel.selectedCharacter.name)
+
             view.findNavController().navigate(R.id.action_characterList2_to_characterInfo) }
         }
 

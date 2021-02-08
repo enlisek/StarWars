@@ -11,12 +11,12 @@ import com.example.starwars.model.repositories.StarWarsRepository
 import kotlinx.coroutines.launch
 
 class CharacterListViewModel(application: Application):AndroidViewModel(application) {
-    private val starWarsRepository: StarWarsRepository
+    private val starWarsRepository: StarWarsRepository = StarWarsRepository()
     private var _characters: MutableLiveData<List<Person>> = MutableLiveData()
     val characters: LiveData<List<Person>>
         get() = _characters
+
     init {
-        starWarsRepository = StarWarsRepository()
         updateAllPeople()
     }
 
@@ -28,12 +28,5 @@ class CharacterListViewModel(application: Application):AndroidViewModel(applicat
         }
     }
 
-    fun getPeopleFromUrlList(list: List<String>)
-    {
-        viewModelScope.launch {
-            _characters.value = starWarsRepository.getPeopleFromUrlList(list)
-        }
-    }
 
-    //fun getFav
 }

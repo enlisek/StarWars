@@ -18,7 +18,7 @@ interface StarWarsApi {
 
 
 
-
+//            search by url
 
             @GET("{fullUrl}")
             fun getFilmByUrl(@Path("fullUrl",encoded = true) fullUrl: String): Call<Film>
@@ -28,9 +28,9 @@ interface StarWarsApi {
 
             @GET("{fullUrl}")
             fun getPlanetByUrl(@Path("fullUrl",encoded = true) fullUrl: String): Call<Planet>
+//          
+//          search by name
 
-            //wyszukiwanie po nazwie
-            // ?search=Leia%20Organa
             @GET ("people/")
             fun getPersonByName(@Query("search") search:  String): Call<ListOfPeople>
 
@@ -40,8 +40,6 @@ interface StarWarsApi {
             @GET ("films/")
             fun getFilmByName(@Query("search") search:  String): Call<ListOfFilms>
 
-//            @GET("people/1/")
-//            fun getExPerson(): Call<Person>
 
 
             @GET("people/{id_czleka}")

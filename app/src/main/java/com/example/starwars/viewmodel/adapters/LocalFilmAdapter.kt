@@ -28,7 +28,9 @@ class LocalFilmAdapter(var data: LiveData<List<FavFilm>>, val favouritiesViewMod
         textViewOneRow.text = data.value?.get(position)?.title
         textViewOneRow.setOnClickListener {
             view-> run {
+
             favouritiesViewModel.selectedFilm = data.value?.get(position)!!
+
             view.findNavController().navigate(R.id.action_favourite_movies_to_favourite_movie) }
         }
 

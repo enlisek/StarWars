@@ -14,5 +14,4 @@ data class FavPerson(
     val birth_year: String,
     val gender: String,
     val homeworld: String,
-//    val movies: List<String>
 )

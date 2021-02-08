@@ -35,8 +35,10 @@ class PlanetList : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
     private lateinit var adapter1 : PlanetAdapter
     private lateinit var viewManager: RecyclerView.LayoutManager
+
     private lateinit var planetListViewModel: PlanetListViewModel
     private lateinit var planetInfoViewModel: PlanetInfoViewModel
 
@@ -55,15 +57,18 @@ class PlanetList : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         mainViewModel =  ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
         planetListViewModel = ViewModelProvider(requireActivity()).get(PlanetListViewModel::class.java)
         planetInfoViewModel = ViewModelProvider(requireActivity()).get(PlanetInfoViewModel::class.java)
 
         viewManager = LinearLayoutManager(requireContext())
         planetListViewModel.updatePlanets()
+
         adapter1 = PlanetAdapter(planetListViewModel.planets,mainViewModel,planetInfoViewModel)
+
         planetListViewModel.planets.observe(viewLifecycleOwner, { adapter1.notifyDataSetChanged() })
+
         return inflater.inflate(R.layout.fragment_planet_list, container, false)
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -74,6 +79,7 @@ class PlanetList : Fragment() {
             adapter = adapter1
             layoutManager = viewManager
         }
+
         button_goToMainMenuFromPlanetList.setOnClickListener {
                 view->view.findNavController().navigate(R.id.action_planetList2_to_mainMenu)
         }

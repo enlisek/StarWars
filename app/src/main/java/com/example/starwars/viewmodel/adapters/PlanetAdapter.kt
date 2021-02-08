@@ -24,16 +24,18 @@ class PlanetAdapter(var data: LiveData<List<Planet>>,val mainViewModel: MainView
     override fun onBindViewHolder(holder: NoteHolder, position: Int) {
 
         val textViewOneRow = holder.itemView.findViewById<TextView>(R.id.textViewOneRow)
-        //val buttonOneRow = holder.itemView.findViewById<TextView>(R.id.textViewOneRow)
+
 
         textViewOneRow.text = data.value?.get(position)?.name
 
         textViewOneRow.setOnClickListener {
                 view-> run {
             mainViewModel.selectedPlanet = data.value?.get(position)!!
+
             planetInfoViewModel.getFilmsFromUrlList(mainViewModel.selectedPlanet.films)
             planetInfoViewModel.getPeopleFromUrlList(mainViewModel.selectedPlanet.residents)
             planetInfoViewModel.isFavourite(mainViewModel.selectedPlanet.name)
+
             view.findNavController().navigate(R.id.action_planetList2_to_planetInfo) }
         }
     }

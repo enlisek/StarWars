@@ -18,18 +18,19 @@ import com.example.starwars.model.entities.Planet
 import kotlinx.coroutines.launch
 
 class FavouritiesViewModel(application: Application):AndroidViewModel(application) {
+
     lateinit var listOfCharacters: LiveData<List<FavPerson>>
     lateinit var listOfPlanets: LiveData<List<FavPlanet>>
     lateinit var listOfFilms: LiveData<List<FavFilm>>
 
-    private val personRepository: PersonRepository
+    private val personRepository: PersonRepository = PersonRepository(StarWarsDataBase.getDatabase(application).personDao())
     private val planetRepository: PlanetRepository
     private val filmRepository: FilmRepository
 
 
 
     init {
-        personRepository = PersonRepository(StarWarsDataBase.getDatabase(application).personDao())
+
         planetRepository = PlanetRepository(StarWarsDataBase.getDatabase(application).planetDao())
         filmRepository = FilmRepository(StarWarsDataBase.getDatabase(application).filmDao())
 
@@ -47,10 +48,12 @@ class FavouritiesViewModel(application: Application):AndroidViewModel(applicatio
     {
         listOfCharacters=personRepository.allPeople()
     }
+
     fun updatePlanets()
     {
         listOfPlanets=planetRepository.allPlanets()
     }
+
     fun updateFilms()
     {
         listOfFilms=filmRepository.allFilms()

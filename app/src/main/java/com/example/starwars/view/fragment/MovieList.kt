@@ -52,7 +52,7 @@ class MovieList : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         mainViewModel =  ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
         movieListViewModel = ViewModelProvider(requireActivity()).get(MovieListViewModel::class.java)
         movieInfoViewModel = ViewModelProvider(requireActivity()).get(MovieInfoViewModel::class.java)
@@ -60,12 +60,15 @@ class MovieList : Fragment() {
         viewManager = LinearLayoutManager(requireContext())
         movieListViewModel.updateFilms()
         adapter1 = MovieAdapter(movieListViewModel.films,mainViewModel,movieInfoViewModel)
+
         movieListViewModel.films.observe(viewLifecycleOwner, { adapter1.notifyDataSetChanged() })
+
         return inflater.inflate(R.layout.fragment_movie_list, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         adapter1.notifyDataSetChanged()
         movieList.apply {
             adapter = adapter1

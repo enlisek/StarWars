@@ -60,10 +60,10 @@ class MovieInfo : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        mainViewModel =  ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
 
+        mainViewModel =  ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
         movieInfoViewModel = ViewModelProvider(requireActivity()).get(MovieInfoViewModel::class.java)
+
         viewManager1 = LinearLayoutManager(requireContext())
         viewManager2 = LinearLayoutManager(requireContext())
 
@@ -105,9 +105,11 @@ class MovieInfo : Fragment() {
         button_goToMovieListFromMovieInfo.setOnClickListener {
                 view->view.findNavController().navigate(R.id.action_movieInfo_to_movieList2)
         }
+
         button_goToMainMenuFromMovieInfo.setOnClickListener {
                 view->view.findNavController().navigate(R.id.action_movieInfo_to_mainMenu)
         }
+
         checkBox_favouriteMovie.setOnClickListener {  view ->
             if(checkBox_favouriteMovie.isChecked)
             {
@@ -122,7 +124,8 @@ class MovieInfo : Fragment() {
                 }
 
 
-            }}
+            }
+        }
 
     }
     companion object {

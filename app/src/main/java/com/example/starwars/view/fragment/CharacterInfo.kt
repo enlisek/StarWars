@@ -63,24 +63,25 @@ class CharacterInfo : Fragment() {
         characterInfoViewModel = ViewModelProvider(requireActivity()).get(CharacterInfoViewModel::class.java)
         viewManager = LinearLayoutManager(requireContext())
         adapter1 = SelectedMovieAdapter(characterInfoViewModel.movies,mainViewModel)
+
         characterInfoViewModel.movies.observe(viewLifecycleOwner, { adapter1.notifyDataSetChanged() })
         characterInfoViewModel.homeworld.observe(viewLifecycleOwner) {textView_character_homeworld.text="Homeworld: ${characterInfoViewModel.homeworld.value?.name}" }
-
         characterInfoViewModel.isF.observe(viewLifecycleOwner) { checkBox_favouriteCharacter.isChecked = characterInfoViewModel.isF.value?:false  }
+
         return inflater.inflate(R.layout.fragment_character_info, container, false)
     }
 
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        characterInfoViewModel.isF.observe(viewLifecycleOwner, Observer { checkBox_favouriteCharacter.isChecked = characterInfoViewModel.isF.value?:false  })
 
         adapter1.notifyDataSetChanged()
+
         recyclerView_character_movies.apply {
             adapter = adapter1
             layoutManager = viewManager
         }
-//        checkBox_favouriteCharacter.isChecked = true
+
         textView_characterName.text = mainViewModel.selectedCharacter.name
         textView_characterHeight.text = "Height: ${mainViewModel.selectedCharacter.height}"
         textview_characterWeight.text = "Weight: ${mainViewModel.selectedCharacter.mass}"
@@ -93,6 +94,7 @@ class CharacterInfo : Fragment() {
         button_goToCharacterListFromCharacterInfo.setOnClickListener {
                 view->view.findNavController().navigate(R.id.action_characterInfo_to_characterList2)
         }
+
          button_goToMainMenuFromCharacterInfo.setOnClickListener { view ->
              view.findNavController().navigate(R.id.action_characterInfo_to_mainMenu)
        }
@@ -100,18 +102,16 @@ class CharacterInfo : Fragment() {
         checkBox_favouriteCharacter.setOnClickListener {  view ->
             if(checkBox_favouriteCharacter.isChecked)
             {
-                Log.d("XX","checked")
                 characterInfoViewModel.add(mainViewModel.selectedCharacter)
             }
             else
             {
-                Log.d("XX","unchecked")
                 GlobalScope.launch{
                     characterInfoViewModel.remove(mainViewModel.selectedCharacter)
                 }
-
-
-            }}}
+            }
+        }
+    }
 
     companion object {
         /**

@@ -48,7 +48,6 @@ class favourite_characters : Fragment() {
     ): View? {
         favouritiesViewModel= ViewModelProvider(requireActivity()).get(FavouritiesViewModel::class.java)
         viewManager1= LinearLayoutManager(requireContext())
-
         adapter1= LocalCharacterAdapter(favouritiesViewModel.listOfCharacters,favouritiesViewModel)
         favouritiesViewModel.listOfCharacters.observe(viewLifecycleOwner, Observer {
             adapter1.notifyDataSetChanged()})
