@@ -59,6 +59,7 @@ class favourite_movie : Fragment() {
 
         checkBox_favouriteMovieInFavouriteMovieInfo.isChecked = true
 
+        textView_idOfFavouriteMovie.text = favouritiesViewModel.selectedFilm.episode_id.toString()
         textView_titleOfFavouriteMovie.text = favouritiesViewModel.selectedFilm.title
         textView_quotationOfFavouriteMovie.text = favouritiesViewModel.selectedFilm.opening_crawl
         textView_dateOfReleaseOfFavouriteMovie.text = "Release date: : ${favouritiesViewModel.selectedFilm.release_date}"
